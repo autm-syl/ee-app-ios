@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Mitr-ExtraLight.ttf">
+            <string>Mitr-ExtraLight</string>
+        </array>
+        <array key="Mitr-Light.ttf">
+            <string>Mitr-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderNewsPageView" customModule="ChichBong" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="g3x-g7-I6W"/>
+                <outlet property="gradientView" destination="FVz-ht-Hdu" id="9rv-0l-Eo0"/>
+                <outlet property="name" destination="2R0-NM-Az5" id="vTc-Sc-fqK"/>
+                <outlet property="thumbnail" destination="wwT-bc-84i" id="u1F-Bm-S5P"/>
+                <outlet property="timeCreate" destination="9G4-4Q-bjr" id="CBU-un-iNL"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="554" height="596"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wwT-bc-84i" userLabel="thumbnail">
+                    <rect key="frame" x="0.0" y="44" width="554" height="518"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVz-ht-Hdu" userLabel="gradient view" customClass="Gradient" customModule="ChichBong" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="357" width="554" height="205"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="205" id="zKe-Um-fwC"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.0062071917808219175" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                            <real key="value" value="1.2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2R0-NM-Az5" userLabel="name">
+                    <rect key="frame" x="20" y="410.5" width="514" height="71"/>
+                    <string key="text">the item width must be less than the width of the UICollectionView minus the section insets left and right values, minus the content insets left and right values</string>
+                    <fontDescription key="fontDescription" name="Mitr-Light" family="Mitr" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 years ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9G4-4Q-bjr" userLabel="time ago">
+                    <rect key="frame" x="20" y="511.5" width="514" height="20.5"/>
+                    <fontDescription key="fontDescription" name="Mitr-ExtraLight" family="Mitr" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROS-OI-AXn">
+                    <rect key="frame" x="0.0" y="44" width="554" height="518"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <action selector="didClickedOpenthisNews:" destination="-1" eventType="touchUpInside" id="1d2-Yx-d4N"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="wwT-bc-84i" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="1Ya-bP-LGa"/>
+                <constraint firstItem="wwT-bc-84i" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="28v-Y6-AaF"/>
+                <constraint firstItem="FVz-ht-Hdu" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="7vN-RX-6yo"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="FVz-ht-Hdu" secondAttribute="trailing" id="8oT-Bd-rEQ"/>
+                <constraint firstItem="FVz-ht-Hdu" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="9V6-oB-GJv"/>
+                <constraint firstItem="2R0-NM-Az5" firstAttribute="trailing" secondItem="9G4-4Q-bjr" secondAttribute="trailing" id="AlP-K2-yCQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="9G4-4Q-bjr" secondAttribute="bottom" constant="30" id="Djw-7n-2Ca"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9G4-4Q-bjr" secondAttribute="trailing" constant="20" id="GwP-t5-APq"/>
+                <constraint firstItem="ROS-OI-AXn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="HfZ-wK-EMA"/>
+                <constraint firstItem="2R0-NM-Az5" firstAttribute="bottom" secondItem="9G4-4Q-bjr" secondAttribute="top" constant="-30" id="LUg-x6-L7a"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ROS-OI-AXn" secondAttribute="trailing" id="Qai-jC-DNm"/>
+                <constraint firstItem="9G4-4Q-bjr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="T2Z-1P-j1Y"/>
+                <constraint firstItem="ROS-OI-AXn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="UTx-ur-FWR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ROS-OI-AXn" secondAttribute="bottom" id="XRr-cM-3Al"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="wwT-bc-84i" secondAttribute="top" id="bwk-Wg-dLr"/>
+                <constraint firstItem="2R0-NM-Az5" firstAttribute="leading" secondItem="9G4-4Q-bjr" secondAttribute="leading" id="dY5-OA-srZ"/>
+                <constraint firstItem="wwT-bc-84i" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="dca-xA-6Jt"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-65.217391304347828" y="-22.767857142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SVN-Poppins-Regular.ttf">
+            <string>SVN-Poppins</string>
+        </array>
+        <array key="SVN-Poppins-SemiBold.ttf">
+            <string>SVN-PoppinsSemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="QACollectionViewCell" id="gTV-IL-0wX" customClass="QACollectionViewCell" customModule="ChichBong" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="197" height="300"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="197" height="300"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjZ-Vn-C4y" userLabel="name">
+                        <rect key="frame" x="4" y="49" width="189" height="42"/>
+                        <fontDescription key="fontDescription" name="SVN-PoppinsSemiBold" family="SVN-Poppins" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gWs-Vc-tMM" userLabel="create by icon">
+                        <rect key="frame" x="4" y="96.5" width="15" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="2wc-uO-myP"/>
+                            <constraint firstAttribute="height" constant="14" id="Td6-lU-jUU"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuaans anh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXR-gu-sqX" userLabel="create by">
+                        <rect key="frame" x="23" y="94.5" width="170" height="15.5"/>
+                        <fontDescription key="fontDescription" name="SVN-Poppins" family="SVN-Poppins" pointSize="11"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Qez-PN-H7b" userLabel="create at icon">
+                        <rect key="frame" x="4" y="112" width="15" height="21.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="41B-O5-IOH"/>
+                            <constraint firstAttribute="height" constant="24" id="Mty-xn-kBA"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021 - 12 -28" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgm-4u-ZmA" userLabel="create at">
+                        <rect key="frame" x="23" y="115" width="170" height="16"/>
+                        <fontDescription key="fontDescription" name="SVN-Poppins" family="SVN-Poppins" pointSize="11"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDN-KS-FFz" userLabel="content">
+                        <rect key="frame" x="4" y="143" width="189" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="tca-Vr-Qd2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SVN-Poppins" family="SVN-Poppins" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jd-Z8-TcE" userLabel="more">
+                        <rect key="frame" x="4" y="261" width="67" height="31"/>
+                        <color key="backgroundColor" red="0.95434564349999995" green="0.41855174299999998" blue="0.14516162869999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="67" id="1XI-mj-ddj"/>
+                            <constraint firstAttribute="height" constant="31" id="ssF-jm-vNo"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SVN-PoppinsSemiBold" family="SVN-Poppins" pointSize="12"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Trả lời &gt;"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="moreBtnClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Dhu-ia-UfO"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="kDN-KS-FFz" firstAttribute="bottom" secondItem="9jd-Z8-TcE" secondAttribute="top" constant="4" id="1an-vp-Yod"/>
+                <constraint firstItem="kDN-KS-FFz" firstAttribute="top" secondItem="Qez-PN-H7b" secondAttribute="bottom" constant="8" id="3Gd-4K-Ej6"/>
+                <constraint firstItem="jjZ-Vn-C4y" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="4" id="3z9-J4-TR1"/>
+                <constraint firstItem="Qez-PN-H7b" firstAttribute="leading" secondItem="gWs-Vc-tMM" secondAttribute="leading" id="4e5-uf-bfY"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="Cgm-4u-ZmA" secondAttribute="trailing" constant="4" id="56D-ss-8XB"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="kDN-KS-FFz" secondAttribute="trailing" constant="4" id="H1D-D6-b0P"/>
+                <constraint firstItem="Cgm-4u-ZmA" firstAttribute="leading" secondItem="Qez-PN-H7b" secondAttribute="trailing" constant="4" id="Hqu-pV-Kwh"/>
+                <constraint firstItem="Cgm-4u-ZmA" firstAttribute="centerY" secondItem="Qez-PN-H7b" secondAttribute="centerY" id="JHx-if-Pri"/>
+                <constraint firstItem="gWs-Vc-tMM" firstAttribute="leading" secondItem="jjZ-Vn-C4y" secondAttribute="leading" id="NiQ-1y-Pic"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="jjZ-Vn-C4y" secondAttribute="trailing" constant="4" id="RrU-Qr-eDk"/>
+                <constraint firstItem="TXR-gu-sqX" firstAttribute="leading" secondItem="gWs-Vc-tMM" secondAttribute="trailing" constant="4" id="TtS-nF-uGi"/>
+                <constraint firstItem="gWs-Vc-tMM" firstAttribute="top" secondItem="jjZ-Vn-C4y" secondAttribute="bottom" constant="4" id="V1C-gz-onp"/>
+                <constraint firstItem="TXR-gu-sqX" firstAttribute="centerY" secondItem="gWs-Vc-tMM" secondAttribute="centerY" id="fDw-bF-YsR"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="TXR-gu-sqX" secondAttribute="trailing" constant="4" id="fxY-Pt-z1S"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="9jd-Z8-TcE" secondAttribute="bottom" constant="8" id="mHw-aU-dLr"/>
+                <constraint firstItem="kDN-KS-FFz" firstAttribute="leading" secondItem="Qez-PN-H7b" secondAttribute="leading" id="od2-fP-kSm"/>
+                <constraint firstItem="jjZ-Vn-C4y" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="5" id="sju-EM-ueU"/>
+                <constraint firstItem="9jd-Z8-TcE" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="4" id="vBw-Ax-9N8"/>
+                <constraint firstItem="Qez-PN-H7b" firstAttribute="top" secondItem="gWs-Vc-tMM" secondAttribute="bottom" constant="2" id="vu4-cB-3n7"/>
+            </constraints>
+            <size key="customSize" width="197" height="312"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="1an-vp-Yod"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="contentHeightConstraints" destination="tca-Vr-Qd2" id="XAo-35-XQ9"/>
+                <outlet property="contentLbl" destination="kDN-KS-FFz" id="qBt-PU-0Tj"/>
+                <outlet property="createAtLbl" destination="Cgm-4u-ZmA" id="8OU-gH-hTj"/>
+                <outlet property="createByLbl" destination="TXR-gu-sqX" id="Czl-1W-qQb"/>
+                <outlet property="moreBtnLbl" destination="9jd-Z8-TcE" id="OLO-OX-0pp"/>
+                <outlet property="nameLbl" destination="jjZ-Vn-C4y" id="bs2-xT-7Xl"/>
+            </connections>
+            <point key="canvasLocation" x="35.507246376811594" y="139.95535714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+    </resources>
+</document>

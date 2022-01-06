@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SVN-Poppins-SemiBold.ttf">
+            <string>SVN-PoppinsSemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RootCategoryCollectionViewCell" id="gTV-IL-0wX" customClass="RootCategoryCollectionViewCell" customModule="ChichBong" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="299" height="392"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="299" height="392"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAY-bz-8R3" userLabel="content view">
+                        <rect key="frame" x="3" y="47" width="293" height="335"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="books.vertical" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="g2u-Bd-KPC">
+                                <rect key="frame" x="0.0" y="-1" width="293" height="294"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="g2u-Bd-KPC" secondAttribute="height" multiplier="1:1" id="IAq-pz-abY"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatilor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00j-xe-f0B" userLabel="cate name">
+                                <rect key="frame" x="2" y="287" width="289" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="xh3-gU-FHv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SVN-PoppinsSemiBold" family="SVN-Poppins" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="00j-xe-f0B" secondAttribute="trailing" constant="2" id="0UE-Ha-ZQO"/>
+                            <constraint firstAttribute="bottom" secondItem="00j-xe-f0B" secondAttribute="bottom" constant="8" id="BfO-nG-sGu"/>
+                            <constraint firstItem="g2u-Bd-KPC" firstAttribute="centerX" secondItem="VAY-bz-8R3" secondAttribute="centerX" id="HI0-rh-Pr8"/>
+                            <constraint firstItem="00j-xe-f0B" firstAttribute="leading" secondItem="VAY-bz-8R3" secondAttribute="leading" constant="2" id="NvD-9I-TUB"/>
+                            <constraint firstItem="00j-xe-f0B" firstAttribute="centerX" secondItem="VAY-bz-8R3" secondAttribute="centerX" id="Vx6-ic-cSz"/>
+                            <constraint firstItem="g2u-Bd-KPC" firstAttribute="top" secondItem="VAY-bz-8R3" secondAttribute="top" id="WKQ-Ah-w2o"/>
+                            <constraint firstItem="g2u-Bd-KPC" firstAttribute="width" secondItem="VAY-bz-8R3" secondAttribute="width" id="bdD-8n-n4d"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="VAY-bz-8R3" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="3" id="5ws-L2-65l"/>
+                <constraint firstItem="VAY-bz-8R3" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="3" id="7si-k1-dLW"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="VAY-bz-8R3" secondAttribute="trailing" constant="3" id="TRA-gt-zKj"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="VAY-bz-8R3" secondAttribute="bottom" constant="10" id="cAH-xN-vwv"/>
+            </constraints>
+            <size key="customSize" width="299" height="392"/>
+            <connections>
+                <outlet property="cateIcon" destination="g2u-Bd-KPC" id="G2D-Xl-GqR"/>
+                <outlet property="cateName" destination="00j-xe-f0B" id="cR8-4F-qrZ"/>
+                <outlet property="mainContent" destination="VAY-bz-8R3" id="Mre-qM-ueZ"/>
+            </connections>
+            <point key="canvasLocation" x="147.10144927536234" y="99.776785714285708"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="books.vertical" catalog="system" width="128" height="107"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

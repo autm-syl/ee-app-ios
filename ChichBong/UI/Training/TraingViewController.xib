@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TraingViewController" customModule="ChichBong" customModuleProvider="target">
+            <connections>
+                <outlet property="closeBtn" destination="ogZ-2E-7mz" id="0YP-tY-CPx"/>
+                <outlet property="contentView" destination="pTe-Rl-L65" id="qPF-bh-nk7"/>
+                <outlet property="headerView" destination="ruT-6L-tYl" id="rHF-yx-OHR"/>
+                <outlet property="nextBtn" destination="dk8-Tl-1I8" id="8ST-YV-JOg"/>
+                <outlet property="progressView" destination="IZl-F6-r8g" id="u5o-dB-vlD"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTe-Rl-L65" userLabel="contentView">
+                    <rect key="frame" x="0.0" y="102" width="414" height="760"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dk8-Tl-1I8">
+                    <rect key="frame" x="346" y="794" width="60" height="60"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Ttp-YT-g0F"/>
+                        <constraint firstAttribute="width" constant="60" id="dlN-1h-Uhs"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                    <state key="normal" image="next_grayIcon">
+                        <color key="titleColor" red="0.78516298529999995" green="0.78527694940000003" blue="0.78513801100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <state key="selected" image="next_orangeIcon">
+                        <color key="titleColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="nextBtnClicked:" destination="-1" eventType="touchUpInside" id="6oo-eN-iWk"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogZ-2E-7mz" userLabel="close">
+                    <rect key="frame" x="0.0" y="44" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="dwD-Yq-lHW"/>
+                        <constraint firstAttribute="width" constant="50" id="piT-8f-cWH"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                    <state key="normal" image="closeIcon"/>
+                    <connections>
+                        <action selector="closeBtnClicked:" destination="-1" eventType="touchUpInside" id="Fyn-oK-c5p"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruT-6L-tYl" userLabel="headerview">
+                    <rect key="frame" x="60" y="44" width="354" height="50"/>
+                    <subviews>
+                        <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IZl-F6-r8g">
+                            <rect key="frame" x="0.0" y="17" width="354" height="16"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="16" id="ZUK-nC-79p"/>
+                            </constraints>
+                            <color key="progressTintColor" red="0.0" green="0.4247913063" blue="0.34255704279999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </progressView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="IZl-F6-r8g" firstAttribute="centerY" secondItem="ruT-6L-tYl" secondAttribute="centerY" id="4Hu-Y4-9Tw"/>
+                        <constraint firstItem="IZl-F6-r8g" firstAttribute="width" secondItem="ruT-6L-tYl" secondAttribute="width" id="Q2V-dE-Zy2"/>
+                        <constraint firstAttribute="height" constant="50" id="Trb-Yo-JFR"/>
+                        <constraint firstItem="IZl-F6-r8g" firstAttribute="centerX" secondItem="ruT-6L-tYl" secondAttribute="centerX" id="gxl-on-aqE"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wr-vA-bkJ" userLabel="line">
+                    <rect key="frame" x="19" y="94" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.015686274510000001" green="0.3803921569" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="NYN-fB-PEF"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="6wr-vA-bkJ" firstAttribute="top" secondItem="ruT-6L-tYl" secondAttribute="bottom" id="2eC-bx-0D0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6wr-vA-bkJ" secondAttribute="trailing" constant="20" id="3Em-aD-rZh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pTe-Rl-L65" secondAttribute="bottom" id="4d6-by-hWf"/>
+                <constraint firstItem="6wr-vA-bkJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="19" id="A9A-XB-QAM"/>
+                <constraint firstItem="pTe-Rl-L65" firstAttribute="top" secondItem="ruT-6L-tYl" secondAttribute="bottom" constant="8" id="Cms-L6-CbZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dk8-Tl-1I8" secondAttribute="trailing" constant="8" id="KQS-eb-d4E"/>
+                <constraint firstItem="ogZ-2E-7mz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NgX-E5-8Ji"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ruT-6L-tYl" secondAttribute="trailing" id="dYD-w8-ScY"/>
+                <constraint firstItem="ruT-6L-tYl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="fvs-fp-shn"/>
+                <constraint firstItem="pTe-Rl-L65" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kks-Qc-MPc"/>
+                <constraint firstItem="ruT-6L-tYl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="pbC-Gj-zEb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pTe-Rl-L65" secondAttribute="trailing" id="tOU-UM-GYN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dk8-Tl-1I8" secondAttribute="bottom" constant="8" id="y1J-2x-A8f"/>
+                <constraint firstItem="ogZ-2E-7mz" firstAttribute="centerY" secondItem="ruT-6L-tYl" secondAttribute="centerY" id="ymS-cE-5hV"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="28"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="closeIcon" width="48" height="48"/>
+        <image name="next_grayIcon" width="256" height="256"/>
+        <image name="next_orangeIcon" width="256" height="256"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

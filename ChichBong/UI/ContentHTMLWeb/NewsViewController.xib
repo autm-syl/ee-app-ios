@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SVN-Poppins-SemiBold.ttf">
+            <string>SVN-PoppinsSemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsViewController" customModule="ChichBong" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="kuI-TR-bkn" id="JE8-pn-fBO"/>
+                <outlet property="downLoadBtn" destination="c7l-W1-VVI" id="4TH-3x-et4"/>
+                <outlet property="headerTitle" destination="Ue2-ce-Xl7" id="UzW-sq-wxq"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wkwebView" destination="fyg-xS-lnx" id="bPS-Ar-Hjy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yft-di-QfV" userLabel="header control">
+                    <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIe-h9-dlo" userLabel="back">
+                            <rect key="frame" x="15" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="XIe-h9-dlo" secondAttribute="height" multiplier="1:1" id="hAn-dc-wQC"/>
+                            </constraints>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="16" maxX="30" maxY="16"/>
+                            <state key="normal" image="backIcon"/>
+                            <connections>
+                                <action selector="backClicked:" destination="-1" eventType="touchUpInside" id="Xs6-eB-brg"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tin tức" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ue2-ce-Xl7">
+                            <rect key="frame" x="40" y="15" width="334" height="20"/>
+                            <fontDescription key="fontDescription" name="SVN-PoppinsSemiBold" family="SVN-Poppins" pointSize="14"/>
+                            <color key="textColor" red="0.1447098255" green="0.15669330949999999" blue="0.16919142009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7l-W1-VVI" userLabel="download">
+                            <rect key="frame" x="349" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="c7l-W1-VVI" secondAttribute="height" multiplier="1:1" id="Ne0-84-ENC"/>
+                            </constraints>
+                            <color key="tintColor" red="0.13850736620000001" green="0.13853871819999999" blue="0.13850542900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="icloud.and.arrow.down.fill" catalog="system"/>
+                            <state key="selected" image="folder" catalog="system"/>
+                            <connections>
+                                <action selector="downloadBtnClicked:" destination="-1" eventType="touchUpInside" id="04d-6a-TD1"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="c7l-W1-VVI" firstAttribute="height" secondItem="yft-di-QfV" secondAttribute="height" id="EaG-ws-QWQ"/>
+                        <constraint firstAttribute="height" constant="50" id="POm-h6-WZ5"/>
+                        <constraint firstItem="XIe-h9-dlo" firstAttribute="leading" secondItem="yft-di-QfV" secondAttribute="leading" constant="15" id="Vru-ku-quD"/>
+                        <constraint firstItem="XIe-h9-dlo" firstAttribute="centerY" secondItem="yft-di-QfV" secondAttribute="centerY" id="WLB-mq-3ff"/>
+                        <constraint firstItem="XIe-h9-dlo" firstAttribute="height" secondItem="yft-di-QfV" secondAttribute="height" id="WWo-BU-qHI"/>
+                        <constraint firstItem="Ue2-ce-Xl7" firstAttribute="leading" secondItem="yft-di-QfV" secondAttribute="leading" constant="40" id="YfT-ut-rsM"/>
+                        <constraint firstAttribute="trailing" secondItem="c7l-W1-VVI" secondAttribute="trailing" constant="15" id="gtu-W1-gyW"/>
+                        <constraint firstItem="Ue2-ce-Xl7" firstAttribute="centerX" secondItem="yft-di-QfV" secondAttribute="centerX" priority="750" id="mh5-iP-DGd"/>
+                        <constraint firstItem="Ue2-ce-Xl7" firstAttribute="centerY" secondItem="yft-di-QfV" secondAttribute="centerY" id="tXX-rq-enO"/>
+                        <constraint firstItem="c7l-W1-VVI" firstAttribute="centerY" secondItem="yft-di-QfV" secondAttribute="centerY" id="uId-VG-nJD"/>
+                        <constraint firstAttribute="trailing" secondItem="Ue2-ce-Xl7" secondAttribute="trailing" constant="40" id="wcS-th-sSy"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kuI-TR-bkn" userLabel="contentView">
+                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                    <subviews>
+                        <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyg-xS-lnx">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="768"/>
+                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <wkWebViewConfiguration key="configuration">
+                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                <wkPreferences key="preferences"/>
+                            </wkWebViewConfiguration>
+                        </wkWebView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="fyg-xS-lnx" secondAttribute="trailing" id="7Ck-qu-Awu"/>
+                        <constraint firstAttribute="bottom" secondItem="fyg-xS-lnx" secondAttribute="bottom" id="YVt-uI-jQO"/>
+                        <constraint firstItem="fyg-xS-lnx" firstAttribute="leading" secondItem="kuI-TR-bkn" secondAttribute="leading" id="m1c-1g-KMZ"/>
+                        <constraint firstItem="fyg-xS-lnx" firstAttribute="top" secondItem="kuI-TR-bkn" secondAttribute="top" id="py5-95-oBU"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="kuI-TR-bkn" firstAttribute="top" secondItem="yft-di-QfV" secondAttribute="bottom" id="4cj-v1-kvK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kuI-TR-bkn" secondAttribute="trailing" id="WMn-lv-Mjf"/>
+                <constraint firstItem="kuI-TR-bkn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="e2R-qg-lY3"/>
+                <constraint firstItem="yft-di-QfV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="o0S-Uo-f9j"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="kuI-TR-bkn" secondAttribute="bottom" id="ol3-FY-utZ"/>
+                <constraint firstItem="yft-di-QfV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="uhg-6V-i3R"/>
+                <constraint firstItem="yft-di-QfV" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="vuO-LM-fSo"/>
+            </constraints>
+            <point key="canvasLocation" x="4" y="23"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backIcon" width="32" height="32"/>
+        <image name="folder" catalog="system" width="128" height="97"/>
+        <image name="icloud.and.arrow.down.fill" catalog="system" width="128" height="112"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

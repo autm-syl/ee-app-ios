@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SVN-Poppins-SemiBold.ttf">
+            <string>SVN-PoppinsSemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TrainingCategoriesViewController" customModule="ChichBong" customModuleProvider="target">
+            <connections>
+                <outlet property="categoriesQuestTable" destination="CZ4-dL-XU6" id="MLe-Aa-bX5"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uth-8V-bgT" userLabel="header control">
+                    <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKP-Eo-WDu" userLabel="back">
+                            <rect key="frame" x="15" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="iKP-Eo-WDu" secondAttribute="height" multiplier="1:1" id="gGS-rM-q7S"/>
+                            </constraints>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="16" maxX="30" maxY="16"/>
+                            <state key="normal" image="backIcon"/>
+                            <connections>
+                                <action selector="backBtnClicked:" destination="-1" eventType="touchUpInside" id="cgm-nU-xi2"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Câu hỏi ôn tập" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBm-gl-nIo">
+                            <rect key="frame" x="155" y="15" width="104.5" height="20"/>
+                            <fontDescription key="fontDescription" name="SVN-PoppinsSemiBold" family="SVN-Poppins" pointSize="14"/>
+                            <color key="textColor" red="0.1447098255" green="0.15669330949999999" blue="0.16919142009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="iKP-Eo-WDu" firstAttribute="leading" secondItem="uth-8V-bgT" secondAttribute="leading" constant="15" id="AaO-ei-oQH"/>
+                        <constraint firstItem="iKP-Eo-WDu" firstAttribute="centerY" secondItem="uth-8V-bgT" secondAttribute="centerY" id="GrO-wb-dAK"/>
+                        <constraint firstItem="lBm-gl-nIo" firstAttribute="centerX" secondItem="uth-8V-bgT" secondAttribute="centerX" id="V1A-fE-Jvd"/>
+                        <constraint firstItem="lBm-gl-nIo" firstAttribute="centerY" secondItem="uth-8V-bgT" secondAttribute="centerY" id="Xlc-9N-nLl"/>
+                        <constraint firstItem="iKP-Eo-WDu" firstAttribute="height" secondItem="uth-8V-bgT" secondAttribute="height" id="cyB-Vt-MaV"/>
+                        <constraint firstAttribute="height" constant="50" id="eMg-PV-3Pi"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Các chủ để câu hỏi ôn tập" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ton-2Q-z3j">
+                    <rect key="frame" x="0.0" y="94" width="414" height="21"/>
+                    <fontDescription key="fontDescription" name="SVN-PoppinsSemiBold" family="SVN-Poppins" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CZ4-dL-XU6">
+                    <rect key="frame" x="0.0" y="125" width="414" height="737"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CZ4-dL-XU6" secondAttribute="trailing" id="6MV-u2-nQk"/>
+                <constraint firstItem="ton-2Q-z3j" firstAttribute="top" secondItem="uth-8V-bgT" secondAttribute="bottom" id="AyG-am-nEm"/>
+                <constraint firstItem="CZ4-dL-XU6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="L0r-CZ-HEV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ton-2Q-z3j" secondAttribute="trailing" id="Mv1-MC-j4V"/>
+                <constraint firstItem="CZ4-dL-XU6" firstAttribute="top" secondItem="ton-2Q-z3j" secondAttribute="bottom" constant="10" id="Whv-7f-d2a"/>
+                <constraint firstItem="uth-8V-bgT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ZAl-5B-RSr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="CZ4-dL-XU6" secondAttribute="bottom" id="a2x-IS-xlf"/>
+                <constraint firstItem="uth-8V-bgT" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="f1l-n5-AY6"/>
+                <constraint firstItem="uth-8V-bgT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="mOt-GY-kAI"/>
+                <constraint firstItem="ton-2Q-z3j" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vDM-2S-6V4"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="94"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backIcon" width="32" height="32"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

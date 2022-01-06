@@ -1,0 +1,101 @@
+//
+//  BaseResponse.swift
+//  ChichBong
+//
+//  Created by Sylvanas on 3/31/21.
+//
+
+import Foundation
+
+
+import Foundation
+import ObjectMapper
+class BaseResponse<T: Mappable>: Mappable {
+    var targetUrl : String?
+    var code: Int?
+    var error: String?
+    var success : Bool?
+    var unAuthorizedRequest : Bool?
+    var result: [T]?
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        code <- map["code"]
+        error <- map["error"]
+        success <- map["success"]
+        unAuthorizedRequest <- map["unAuthorizedRequest"]
+        result <- map["result"]
+    }
+    
+    func isSuccessCode() -> Bool? {
+        return success == true
+    }
+}
+
+
+class BaseObjectResponse<T: Mappable>: Mappable {
+    var targetUrl : String?
+    var code: Int?
+    var error: String?
+    var success : Bool?
+    var unAuthorizedRequest : Bool?
+    var result: T?
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        code <- map["code"]
+        error <- map["error"]
+        success <- map["success"]
+        unAuthorizedRequest <- map["unAuthorizedRequest"]
+        result <- map["result"]
+    }
+    
+    func isSuccessCode() -> Bool? {
+        return success == true
+    }
+}
+class BaseIntResponse: Mappable {
+    var targetUrl : String?
+    var code: Int?
+    var error: String?
+    var success : Bool?
+    var unAuthorizedRequest : Bool?
+    var result: Int?
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        code <- map["code"]
+        error <- map["error"]
+        success <- map["success"]
+        unAuthorizedRequest <- map["unAuthorizedRequest"]
+        result <- map["result"]
+    }
+    
+    func isSuccessCode() -> Bool? {
+        return success == true
+    }
+}
+
+
+class BaseResponseError {
+    var mErrorType: NetworkErrorType!
+    var mErrorCode: Int!
+    var mErrorMessage: String!
+    required init?(map: Map) {
+        
+    }
+    
+    init(_ errorType: NetworkErrorType,_ errorCode: Int,_ errorMessage: String) {
+        mErrorType = errorType
+        mErrorCode = errorCode
+        mErrorMessage = errorMessage
+    }
+    
+    
+}

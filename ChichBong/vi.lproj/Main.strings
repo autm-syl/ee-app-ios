@@ -1,0 +1,324 @@
+
+/* Class = "UISegmentedControl"; 1AN-13-9mg.segmentTitles[0] = "Mặc định"; ObjectID = "1AN-13-9mg"; */
+"1AN-13-9mg.segmentTitles[0]" = "Mặc định";
+
+/* Class = "UISegmentedControl"; 1AN-13-9mg.segmentTitles[1] = "Dùng tên"; ObjectID = "1AN-13-9mg"; */
+"1AN-13-9mg.segmentTitles[1]" = "Dùng tên";
+
+/* Class = "UISegmentedControl"; 1AN-13-9mg.segmentTitles[2] = "Dùng số điện thoại"; ObjectID = "1AN-13-9mg"; */
+"1AN-13-9mg.segmentTitles[2]" = "Dùng số điện thoại";
+
+/* Class = "UILabel"; text = "20000"; ObjectID = "2Ne-6Q-O4M"; */
+"2Ne-6Q-O4M.text" = "20000";
+
+/* Class = "UILabel"; text = "Bạn chưa có sản phẩm yêu thích"; ObjectID = "2Vm-AZ-eLi"; */
+"2Vm-AZ-eLi.text" = "Bạn chưa có sản phẩm yêu thích";
+
+/* Class = "UILabel"; text = "Đơn hàng"; ObjectID = "2s1-bH-ixn"; */
+"2s1-bH-ixn.text" = "Đơn hàng";
+
+/* Class = "UILabel"; text = "Nhập lại mật khẩu"; ObjectID = "3Be-2W-zqs"; */
+"3Be-2W-zqs.text" = "Nhập lại mật khẩu";
+
+/* Class = "UILabel"; text = "Thông tin khác hàng"; ObjectID = "4gs-S6-fGk"; */
+"4gs-S6-fGk.text" = "Thông tin khác hàng";
+
+/* Class = "UINavigationItem"; title = "Giỏ hàng"; ObjectID = "53R-Yh-jte"; */
+"53R-Yh-jte.title" = "Giỏ hàng";
+
+/* Class = "UILabel"; text = "Tên"; ObjectID = "6aF-qs-0ln"; */
+"6aF-qs-0ln.text" = "Tên";
+
+/* Class = "UILabel"; text = "Nhà chính"; ObjectID = "7Yz-bo-2qP"; */
+"7Yz-bo-2qP.text" = "Nhà chính";
+
+/* Class = "UILabel"; text = "Nhập mã PIN để cập nhật lại"; ObjectID = "8TC-4t-ctc"; */
+"8TC-4t-ctc.text" = "Nhập mã PIN để cập nhật lại";
+
+/* Class = "UITextField"; placeholder = "Tên đăng nhập"; ObjectID = "8WI-O2-Fds"; */
+"8WI-O2-Fds.placeholder" = "Tên đăng nhập";
+
+/* Class = "UILabel"; text = "Will attempt to recover by breaking co"; ObjectID = "8ej-aU-Y5A"; */
+"8ej-aU-Y5A.text" = "Will attempt to recover by breaking co";
+
+/* Class = "UIButton"; normalTitle = "Cá nhân"; ObjectID = "Ayb-yA-fwJ"; */
+"Ayb-yA-fwJ.normalTitle" = "Cá nhân";
+
+/* Class = "UILabel"; text = "Số điện thoại"; ObjectID = "BEF-Qe-Bdu"; */
+"BEF-Qe-Bdu.text" = "Số điện thoại";
+
+/* Class = "UILabel"; text = "Liên kết tài khoản"; ObjectID = "Bcd-Sf-HjN"; */
+"Bcd-Sf-HjN.text" = "Liên kết tài khoản";
+
+/* Class = "UILabel"; text = "Sản phẩm"; ObjectID = "C3g-DN-l23"; */
+"C3g-DN-l23.text" = "Sản phẩm";
+
+/* Class = "UIButton"; normalTitle = "Đăng ký"; ObjectID = "CxA-Nb-bJd"; */
+"CxA-Nb-bJd.normalTitle" = "Đăng ký";
+
+/* Class = "UIButton"; normalTitle = "Đăng nhập"; ObjectID = "DKO-xg-VLC"; */
+"DKO-xg-VLC.normalTitle" = "Đăng nhập";
+
+/* Class = "UILabel"; text = "Mã PIN"; ObjectID = "DZA-cl-cp4"; */
+"DZA-cl-cp4.text" = "Mã PIN";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "Dkm-ra-HXD"; */
+"Dkm-ra-HXD.text" = "1";
+
+/* Class = "UIButton"; normalTitle = "Liên hệ với chúng tôi"; ObjectID = "DlT-sz-ufn"; */
+"DlT-sz-ufn.normalTitle" = "Liên hệ với chúng tôi";
+
+/* Class = "UITabBarItem"; title = "Cá nhân"; ObjectID = "EXT-K3-xeN"; */
+"EXT-K3-xeN.title" = "Cá nhân";
+
+/* Class = "UITextField"; placeholder = "Mật khẩu gồm 4 ký tự trở lên"; ObjectID = "Gfy-JX-2nD"; */
+"Gfy-JX-2nD.placeholder" = "Mật khẩu gồm 4 ký tự trở lên";
+
+/* Class = "UILabel"; text = "Thông tin giao hàng"; ObjectID = "HP2-0e-dRa"; */
+"HP2-0e-dRa.text" = "Thông tin giao hàng";
+
+/* Class = "UIButton"; normalTitle = "？"; ObjectID = "JPt-cu-Fr4"; */
+"JPt-cu-Fr4.normalTitle" = "？";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "JQX-TA-GSn"; */
+"JQX-TA-GSn.text" = "1";
+
+/* Class = "UIButton"; normalTitle = "Chỉ dùng số điện thoại"; ObjectID = "Jef-L1-Frv"; */
+"Jef-L1-Frv.normalTitle" = "Chỉ dùng số điện thoại";
+
+/* Class = "UILabel"; text = "Số điện thoại"; ObjectID = "JgB-ku-HLr"; */
+"JgB-ku-HLr.text" = "Số điện thoại";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "K4G-T1-VHE"; */
+"K4G-T1-VHE.text" = "1";
+
+/* Class = "UILabel"; text = "Cảm ơn bạn đã tin tin Chích Bông Đơn hàng của bạn đang được xử lý."; ObjectID = "K63-JY-Sea"; */
+"K63-JY-Sea.text" = "Cảm ơn bạn đã tin tin Chích Bông Đơn hàng của bạn đang được xử lý.";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "LtJ-JE-6DV"; */
+"LtJ-JE-6DV.text" = "-";
+
+/* Class = "UITabBarItem"; title = "Nhà chính"; ObjectID = "NR2-wQ-JoA"; */
+"NR2-wQ-JoA.title" = "Nhà chính";
+
+/* Class = "UINavigationItem"; title = "Tìm kiếm"; ObjectID = "Nko-cD-CrX"; */
+"Nko-cD-CrX.title" = "Tìm kiếm";
+
+/* Class = "UITabBarItem"; title = "Đơn hàng"; ObjectID = "Nmt-XB-Soe"; */
+"Nmt-XB-Soe.title" = "Đơn hàng";
+
+/* Class = "UINavigationItem"; title = "Thông Tin Khách Hàng"; ObjectID = "Npb-Dg-Fh7"; */
+"Npb-Dg-Fh7.title" = "Thông Tin Khách Hàng";
+
+/* Class = "UITabBarItem"; title = "Tìm kiếm"; ObjectID = "POa-SO-eky"; */
+"POa-SO-eky.title" = "Tìm kiếm";
+
+/* Class = "UILabel"; text = "499000"; ObjectID = "PW8-jK-PCy"; */
+"PW8-jK-PCy.text" = "499000";
+
+/* Class = "UIButton"; normalTitle = "Thêm sản phẩm"; ObjectID = "R4m-mF-BaR"; */
+"R4m-mF-BaR.normalTitle" = "Thêm sản phẩm";
+
+/* Class = "UILabel"; text = "Hãy thêm sản phẩm mới"; ObjectID = "RfA-SL-fAa"; */
+"RfA-SL-fAa.text" = "Hãy thêm sản phẩm mới";
+
+/* Class = "UILabel"; text = "Lọc"; ObjectID = "Roq-Ha-BqE"; */
+"Roq-Ha-BqE.text" = "Lọc";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "RvW-gF-Vbw"; */
+"RvW-gF-Vbw.text" = "-";
+
+/* Class = "UIButton"; normalTitle = "Tiếp tục"; ObjectID = "T2V-x7-9Zy"; */
+"T2V-x7-9Zy.normalTitle" = "Tiếp tục";
+
+/* Class = "UISegmentedControl"; TQg-8V-Bwg.segmentTitles[0] = "Dùng tài khoản"; ObjectID = "TQg-8V-Bwg"; */
+"TQg-8V-Bwg.segmentTitles[0]" = "Dùng tài khoản";
+
+/* Class = "UISegmentedControl"; TQg-8V-Bwg.segmentTitles[1] = "Dùng số điện thoại"; ObjectID = "TQg-8V-Bwg"; */
+"TQg-8V-Bwg.segmentTitles[1]" = "Dùng số điện thoại";
+
+/* Class = "UIButton"; normalTitle = "Đặt ngay"; ObjectID = "TVO-k1-sRm"; */
+"TVO-k1-sRm.normalTitle" = "Đặt ngay";
+
+/* Class = "UINavigationItem"; title = "Sản phẩm"; ObjectID = "Tvf-Fg-DPW"; */
+"Tvf-Fg-DPW.title" = "Sản phẩm";
+
+/* Class = "UIButton"; normalTitle = "Thêm sản phẩm"; ObjectID = "TxM-hA-N0K"; */
+"TxM-hA-N0K.normalTitle" = "Thêm sản phẩm";
+
+/* Class = "UILabel"; text = "Yêu thích"; ObjectID = "UWj-A6-uSu"; */
+"UWj-A6-uSu.text" = "Yêu thích";
+
+/* Class = "UILabel"; text = "105 sản phẩm"; ObjectID = "Vff-Ll-54u"; */
+"Vff-Ll-54u.text" = "105 sản phẩm";
+
+/* Class = "UITextField"; placeholder = "Điền sản phẩm bạn muốn tìm"; ObjectID = "VwY-fK-a5e"; */
+"VwY-fK-a5e.placeholder" = "Điền sản phẩm bạn muốn tìm";
+
+/* Class = "UITextField"; placeholder = "Tên khách hàng"; ObjectID = "WKF-IH-hJA"; */
+"WKF-IH-hJA.placeholder" = "Tên khách hàng";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "WV1-V1-HqI"; */
+"WV1-V1-HqI.text" = "1";
+
+/* Class = "UILabel"; text = "Giỏ hàng"; ObjectID = "WbO-p1-edd"; */
+"WbO-p1-edd.text" = "Giỏ hàng";
+
+/* Class = "UISegmentedControl"; XGu-C2-XTf.segmentTitles[0] = "Đã đặt"; ObjectID = "XGu-C2-XTf"; */
+"XGu-C2-XTf.segmentTitles[0]" = "Đã đặt";
+
+/* Class = "UISegmentedControl"; XGu-C2-XTf.segmentTitles[1] = "Đã xác nhận"; ObjectID = "XGu-C2-XTf"; */
+"XGu-C2-XTf.segmentTitles[1]" = "Đã xác nhận";
+
+/* Class = "UISegmentedControl"; XGu-C2-XTf.segmentTitles[2] = "Đã huỷ"; ObjectID = "XGu-C2-XTf"; */
+"XGu-C2-XTf.segmentTitles[2]" = "Đã huỷ";
+
+/* Class = "UILabel"; text = "Tên"; ObjectID = "XKw-r3-STb"; */
+"XKw-r3-STb.text" = "Tên";
+
+/* Class = "UIButton"; normalTitle = "Đăng ký mới"; ObjectID = "Y8h-aX-R2R"; */
+"Y8h-aX-R2R.normalTitle" = "Đăng ký mới";
+
+/* Class = "UIBarButtonItem"; title = "left"; ObjectID = "Z3v-CQ-oCe"; */
+"Z3v-CQ-oCe.title" = "left";
+
+/* Class = "UINavigationItem"; title = "Yêu thích"; ObjectID = "ZCv-qL-D2G"; */
+"ZCv-qL-D2G.title" = "Yêu thích";
+
+/* Class = "UILabel"; text = "Trang điểm - Làm đẹp"; ObjectID = "ZKE-9n-rsH"; */
+"ZKE-9n-rsH.text" = "Trang điểm - Làm đẹp";
+
+/* Class = "UILabel"; text = "catename"; ObjectID = "ab8-rz-IPN"; */
+"ab8-rz-IPN.text" = "catename";
+
+/* Class = "UILabel"; text = "Woman"; ObjectID = "bvk-KH-DHK"; */
+"bvk-KH-DHK.text" = "Woman";
+
+/* Class = "UIButton"; normalTitle = "Đăng nhập"; ObjectID = "cTK-dV-9X2"; */
+"cTK-dV-9X2.normalTitle" = "Đăng nhập";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "cvh-Sw-pSg"; */
+"cvh-Sw-pSg.text" = "1";
+
+/* Class = "UITextField"; placeholder = "vd : 0987654321"; ObjectID = "dEt-uj-n7Y"; */
+"dEt-uj-n7Y.placeholder" = "vd : 0987654321";
+
+/* Class = "UILabel"; text = "Sản phẩm"; ObjectID = "dvi-7N-c0c"; */
+"dvi-7N-c0c.text" = "Sản phẩm";
+
+/* Class = "UILabel"; text = "0987654321"; ObjectID = "e2M-RT-4MZ"; */
+"e2M-RT-4MZ.text" = "0987654321";
+
+/* Class = "UILabel"; text = "Tìm kiếm"; ObjectID = "eLE-G4-jBf"; */
+"eLE-G4-jBf.text" = "Tìm kiếm";
+
+/* Class = "UINavigationItem"; title = "Nhà chính"; ObjectID = "eXp-XH-0yd"; */
+"eXp-XH-0yd.title" = "Nhà chính";
+
+/* Class = "UIButton"; normalTitle = "Thêm hết vào giỏ hàng"; ObjectID = "fIY-gg-2Ym"; */
+"fIY-gg-2Ym.normalTitle" = "Thêm hết vào giỏ hàng";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "fb3-4r-yxG"; */
+"fb3-4r-yxG.text" = "-";
+
+/* Class = "UIButton"; normalTitle = "Đã có tài khoản đăng nhập"; ObjectID = "gWZ-ue-3Lo"; */
+"gWZ-ue-3Lo.normalTitle" = "Đã có tài khoản đăng nhập";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "ggM-f8-g62"; */
+"ggM-f8-g62.text" = "1";
+
+/* Class = "UILabel"; text = "Lưu ý: Chỉ thực hiện việc này trên máy điện thoại của riêng bạn.Nếu đây không phải là điện thoại của bạn, hãy bỏ qua bước này"; ObjectID = "iYb-zI-f0Y"; */
+"iYb-zI-f0Y.text" = "Lưu ý: Chỉ thực hiện việc này trên máy điện thoại của riêng bạn.Nếu đây không phải là điện thoại của bạn, hãy bỏ qua bước này";
+
+/* Class = "UITabBarItem"; title = "Yêu thích"; ObjectID = "j8K-xJ-Y9b"; */
+"j8K-xJ-Y9b.title" = "Yêu thích";
+
+/* Class = "UIButton"; normalTitle = "Bảng tin"; ObjectID = "jKF-Q6-C3x"; */
+"jKF-Q6-C3x.normalTitle" = "Bảng tin";
+
+/* Class = "UILabel"; text = "Liên kết Facebook"; ObjectID = "kV0-GV-xo1"; */
+"kV0-GV-xo1.text" = "Liên kết Facebook";
+
+/* Class = "UILabel"; text = "Lãng khách"; ObjectID = "kxc-zj-F8b"; */
+"kxc-zj-F8b.text" = "Lãng khách";
+
+/* Class = "UIButton"; normalTitle = "Về chúng tôi"; ObjectID = "l34-lV-VB4"; */
+"l34-lV-VB4.normalTitle" = "Về chúng tôi";
+
+/* Class = "UIButton"; normalTitle = "Cập nhật"; ObjectID = "l8h-GQ-WA3"; */
+"l8h-GQ-WA3.normalTitle" = "Cập nhật";
+
+/* Class = "UIButton"; normalTitle = "Quay lại"; ObjectID = "lAP-0S-D5J"; */
+"lAP-0S-D5J.normalTitle" = "Quay lại";
+
+/* Class = "UILabel"; text = "Hãy thêm sản phẩm mới"; ObjectID = "lsD-ty-Lxp"; */
+"lsD-ty-Lxp.text" = "Hãy thêm sản phẩm mới";
+
+/* Class = "UILabel"; text = "Mật khẩu"; ObjectID = "m7D-yw-Q5L"; */
+"m7D-yw-Q5L.text" = "Mật khẩu";
+
+/* Class = "UIButton"; normalTitle = "  Thích sản phẩm"; ObjectID = "mSp-nI-vWO"; */
+"mSp-nI-vWO.normalTitle" = "  Thích sản phẩm";
+
+/* Class = "UILabel"; text = "Mật khẩu"; ObjectID = "msd-iH-9aj"; */
+"msd-iH-9aj.text" = "Mật khẩu";
+
+/* Class = "UIButton"; normalTitle = "Cập nhật"; ObjectID = "odo-00-UQa"; */
+"odo-00-UQa.normalTitle" = "Cập nhật";
+
+/* Class = "UILabel"; text = "Lãng khách"; ObjectID = "ptj-WN-aB7"; */
+"ptj-WN-aB7.text" = "Lãng khách";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "rfW-n2-acN"; */
+"rfW-n2-acN.text" = "-";
+
+/* Class = "UINavigationItem"; title = "Sản phẩm"; ObjectID = "rpm-na-Xcr"; */
+"rpm-na-Xcr.title" = "Sản phẩm";
+
+/* Class = "UIButton"; normalTitle = "Đăng ký ngay"; ObjectID = "s12-7a-vV4"; */
+"s12-7a-vV4.normalTitle" = "Đăng ký ngay";
+
+/* Class = "UILabel"; text = "Giỏ hàng đang trống"; ObjectID = "sf3-YV-JzE"; */
+"sf3-YV-JzE.text" = "Giỏ hàng đang trống";
+
+/* Class = "UINavigationItem"; title = "Đơn hàng"; ObjectID = "szH-YY-KTi"; */
+"szH-YY-KTi.title" = "Đơn hàng";
+
+/* Class = "UILabel"; text = "Cá nhân"; ObjectID = "t4P-uH-3xS"; */
+"t4P-uH-3xS.text" = "Cá nhân";
+
+/* Class = "UIButton"; normalTitle = "  Thêm vào giỏ"; ObjectID = "tur-IF-wPU"; */
+"tur-IF-wPU.normalTitle" = "  Thêm vào giỏ";
+
+/* Class = "UILabel"; text = "Chào mừng bạn đến với ngôi nhà chích bông"; ObjectID = "u2Y-OP-c08"; */
+"u2Y-OP-c08.text" = "Chào mừng bạn đến với ngôi nhà chích bông";
+
+/* Class = "UITextView"; text = "Số điện thoại"; ObjectID = "uNr-Wq-CZZ"; */
+"uNr-Wq-CZZ.text" = "Số điện thoại";
+
+/* Class = "UILabel"; text = "Tên người dùng"; ObjectID = "veB-hr-Ell"; */
+"veB-hr-Ell.text" = "Tên người dùng";
+
+/* Class = "UITextView"; text = "Địa chỉ giao hàng"; ObjectID = "w6s-AE-mqe"; */
+"w6s-AE-mqe.text" = "Địa chỉ giao hàng";
+
+/* Class = "UINavigationItem"; title = "Thông tin chi tiết"; ObjectID = "wXp-eb-y8r"; */
+"wXp-eb-y8r.title" = "Thông tin chi tiết";
+
+/* Class = "UIButton"; normalTitle = "Xoá tất cả"; ObjectID = "x0s-sM-FqN"; */
+"x0s-sM-FqN.normalTitle" = "Xoá tất cả";
+
+/* Class = "UILabel"; text = "Thử nghiệm"; ObjectID = "xas-jj-K4H"; */
+"xas-jj-K4H.text" = "Thử nghiệm";
+
+/* Class = "UIButton"; normalTitle = "Cập nhật lại mã pin"; ObjectID = "yLK-ZX-NS7"; */
+"yLK-ZX-NS7.normalTitle" = "Cập nhật lại mã pin";
+
+/* Class = "UIButton"; normalTitle = "Đặt ngay"; ObjectID = "yjb-Gd-9jd"; */
+"yjb-Gd-9jd.normalTitle" = "Đặt ngay";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "z5D-r9-OIe"; */
+"z5D-r9-OIe.text" = "1";
+
+/* Class = "UIButton"; normalTitle = "Cập nhật"; ObjectID = "zsz-XR-SoI"; */
+"zsz-XR-SoI.normalTitle" = "Cập nhật";
