@@ -19,20 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         
-        let is1stOpen = Globalvariables.shareInstance.isFirstOpen
         if let windowScene = scene as? UIWindowScene {
             self.window = UIWindow(windowScene: windowScene)
             AppDelegate.standard.window = window
-
-            if (is1stOpen) {
-                showIntroView()
-            } else {
-                showMainAppRouter()
-            }
         }
-//        print("app bat dau chay")
         showMainAppRouter()
-        
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -82,6 +73,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         AppDelegate.standard.window?.rootViewController = initialViewController
         AppDelegate.standard.window?.makeKeyAndVisible()
+        
+        Globalvariables.shareInstance.setIsFirstOpen(isFirstOpen: false)
     }
     
     func showMainAppRouter() {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -118,7 +118,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kC2-gw-kI1" userLabel="username view">
                                                 <rect key="frame" x="20" y="141.5" width="374" height="56"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odx-SD-bNd">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tên đăng nhập hoặc số điện thoại" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odx-SD-bNd">
                                                         <rect key="frame" x="8" y="8" width="358" height="15.5"/>
                                                         <fontDescription key="fontDescription" name="SVN-Poppins" family="SVN-Poppins" pointSize="11"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -178,7 +178,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sho-qh-nER" userLabel="pass view">
                                                 <rect key="frame" x="20" y="202.5" width="374" height="56"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zN6-A4-dYB">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mật khẩu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zN6-A4-dYB">
                                                         <rect key="frame" x="8" y="8" width="358" height="15.5"/>
                                                         <fontDescription key="fontDescription" name="SVN-Poppins" family="SVN-Poppins" pointSize="11"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -238,7 +238,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhC-48-axN" userLabel="re pass view">
                                                 <rect key="frame" x="20" y="263.5" width="374" height="56"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Re-type password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQ0-KP-2OL">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhập lại mật khẩu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQ0-KP-2OL">
                                                         <rect key="frame" x="8" y="8" width="358" height="15.5"/>
                                                         <fontDescription key="fontDescription" name="SVN-Poppins" family="SVN-Poppins" pointSize="11"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -396,21 +396,22 @@
                                         <rect key="frame" x="5" y="72" width="404" height="673.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="4Bb-JU-NcU" userLabel="thum">
-                                                <rect key="frame" x="20" y="20" width="110" height="110"/>
+                                                <rect key="frame" x="20" y="20" width="80" height="80"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="4Bb-JU-NcU" secondAttribute="height" multiplier="1:1" id="B6v-rx-6Gt"/>
+                                                    <constraint firstAttribute="height" constant="80" id="Nbo-Kd-nef"/>
+                                                    <constraint firstAttribute="width" constant="80" id="XF1-sv-ReT"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đăng nhập" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Quc-4T-9CA" userLabel="title login">
-                                                <rect key="frame" x="20" y="180" width="364" height="25.5"/>
+                                                <rect key="frame" x="20" y="150" width="364" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="SVN-PoppinsSemiBold" family="SVN-Poppins" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGV-Zj-CAQ" userLabel="username view">
-                                                <rect key="frame" x="20" y="227.5" width="364" height="56"/>
+                                                <rect key="frame" x="20" y="197.5" width="364" height="56"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dty-wU-4gD">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tên đăng nhập hoặc số điện thoại" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dty-wU-4gD">
                                                         <rect key="frame" x="8" y="8" width="348" height="15.5"/>
                                                         <fontDescription key="fontDescription" name="SVN-Poppins" family="SVN-Poppins" pointSize="11"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -468,9 +469,9 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWW-OQ-acJ" userLabel="pass view">
-                                                <rect key="frame" x="20" y="288.5" width="364" height="56"/>
+                                                <rect key="frame" x="20" y="258.5" width="364" height="56"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiS-p4-ieN">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mật khẩu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiS-p4-ieN">
                                                         <rect key="frame" x="8" y="8" width="348" height="15.5"/>
                                                         <fontDescription key="fontDescription" name="SVN-Poppins" family="SVN-Poppins" pointSize="11"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -528,7 +529,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1c-kd-v7i" userLabel="login btn">
-                                                <rect key="frame" x="20" y="388.5" width="364" height="44"/>
+                                                <rect key="frame" x="20" y="358.5" width="364" height="44"/>
                                                 <color key="backgroundColor" red="0.122458227" green="0.57048004870000002" blue="0.98985487220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="hnj-Ym-m4e"/>
@@ -547,7 +548,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zrv-mG-r3M" userLabel="register">
-                                                <rect key="frame" x="20" y="462.5" width="364" height="44"/>
+                                                <rect key="frame" x="20" y="432.5" width="364" height="44"/>
                                                 <color key="backgroundColor" red="0.75939398999999996" green="0.69638127090000002" blue="0.5035656691" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="y7N-yk-aj8"/>
@@ -565,11 +566,11 @@
                                                     <action selector="registerBtnClicked:" destination="R6d-8f-wFg" eventType="touchUpInside" id="4Of-Fo-1eb"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1e-B6-pH0" userLabel="guest join">
-                                                <rect key="frame" x="20" y="526.5" width="364" height="44"/>
+                                            <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1e-B6-pH0" userLabel="guest join">
+                                                <rect key="frame" x="20" y="496.5" width="364" height="1"/>
                                                 <color key="backgroundColor" red="0.75939398999999996" green="0.69638127090000002" blue="0.5035656691" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="Ws9-Uj-pQy"/>
+                                                    <constraint firstAttribute="height" constant="1" id="Ws9-Uj-pQy"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="SVN-PoppinsSemiBold" family="SVN-Poppins" pointSize="14"/>
                                                 <state key="normal" title="Tham gia với tư cách là khách">
@@ -585,7 +586,7 @@
                                                 </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Bạn vui lòng đăng nhập hoặc đăng ký để tham gia hệ thống nhé!" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DaG-cp-r0N">
-                                                <rect key="frame" x="20" y="580.5" width="364" height="100"/>
+                                                <rect key="frame" x="20" y="507.5" width="364" height="100"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="ZEg-f2-bXW"/>
@@ -770,7 +771,7 @@
         <image name="arrow.forward" catalog="system" width="128" height="98"/>
         <image name="backIcon" width="32" height="32"/>
         <image name="closeIcon" width="48" height="48"/>
-        <image name="logo" width="97" height="110"/>
+        <image name="logo" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

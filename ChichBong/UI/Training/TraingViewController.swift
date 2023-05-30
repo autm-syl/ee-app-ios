@@ -119,14 +119,17 @@ extension TraingViewController:FSPagerViewDataSource,FSPagerViewDelegate {
         cell.clean()
         
         let quest = data!.quests[index]
-        cell.nameQuest.text = quest.Content
-        cell.AseBtn.setTitle(quest.Option1, for: .normal)
-        cell.BseBtn.setTitle(quest.Option2, for: .normal)
-        cell.CseBtn.setTitle(quest.Option3, for: .normal)
-        cell.DseBtn.setTitle(quest.Option4, for: .normal)
+        cell.option1Lbl.text = quest.Option1.replacingOccurrences(of: "\\n", with: "\n")
+        cell.option2Lbl.text = quest.Option2.replacingOccurrences(of: "\\n", with: "\n")
+        cell.option3Lbl.text = quest.Option3.replacingOccurrences(of: "\\n", with: "\n")
+        cell.option4Lbl.text = quest.Option4.replacingOccurrences(of: "\\n", with: "\n")
+        cell.AseBtn.setTitle("", for: .normal)
+        cell.BseBtn.setTitle("", for: .normal)
+        cell.CseBtn.setTitle("", for: .normal)
+        cell.DseBtn.setTitle("", for: .normal)
         cell.indexQuest = index;
         cell.delegate = self;
-        cell.setContentWeb(content: quest.Content)
+        cell.setContentWeb(content: quest.Content.replacingOccurrences(of: "\\n", with: "\n"))
         
         return cell;
     }
@@ -168,16 +171,16 @@ extension TraingViewController: FSQuestViewCellDelegate{
         currentChooseText = quest.Correct;
 //        quest.aSe
         switch quest.Correct {
-        case "Option1":
+        case "option1":
             currentChooseText = quest.Option1;
             break;
-        case "Option2":
+        case "option2":
             currentChooseText = quest.Option2;
             break;
-        case "Option3":
+        case "option3":
             currentChooseText = quest.Option3;
             break;
-        case "Option4":
+        case "option4":
             currentChooseText = quest.Option4;
             break;
         default:

@@ -106,7 +106,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RootCategoryCollectionViewCell", for: indexPath) as! RootCategoryCollectionViewCell
         
         let item = data[indexPath.row]
-        
+        let imageDefault = #imageLiteral(resourceName: "not_finishIcon")
+        cell.cateIcon.sd_setImage(with: URL.init(string: item.description), placeholderImage: imageDefault, options: .progressiveLoad, progress: nil, completed: nil)
         cell.cateName.text = item.name
     
         return cell
@@ -128,8 +129,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
         DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) {
             let subItem:[CategoryTreeData] = item.children
-            
-            
             let detailRootCategoryController = DetailRootCategoryViewController(nibName: "DetailRootCategoryViewController", bundle: nil)
             detailRootCategoryController.data = subItem;
             self.navigationController?.pushViewController(detailRootCategoryController, animated: true)

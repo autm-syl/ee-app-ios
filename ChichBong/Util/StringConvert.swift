@@ -15,6 +15,6 @@ class Util {
         let range = NSMakeRange(0, text.count)
         let modString = regex.stringByReplacingMatches(in: text, options: [], range: range, withTemplate: "")
         print(modString)
-        return modString
+        return modString.replacingOccurrences(of: "&nbsp;", with: " ")
     }
 }

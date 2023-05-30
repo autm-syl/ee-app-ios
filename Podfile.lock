@@ -1,0 +1,114 @@
+PODS:
+  - Alamofire (5.2.2)
+  - AlamofireObjectMapper (6.3.0):
+    - Alamofire (~> 5.2)
+    - ObjectMapper (~> 4.2)
+  - Device (3.2.1)
+  - DropDown (2.3.13)
+  - IQKeyboardManager (6.5.9)
+  - ObjectMapper (4.2.0)
+  - OneSignal (3.10.0)
+  - ParallaxHeader (3.0.0)
+  - PTCardTabBar (1.0.2)
+  - QuickLayout (3.0.0)
+  - Realm (10.20.1):
+    - Realm/Headers (= 10.20.1)
+  - Realm/Headers (10.20.1)
+  - RealmSwift (10.20.1):
+    - Realm (= 10.20.1)
+  - RSReusable (1.1.0)
+  - SDWebImage (5.10.4):
+    - SDWebImage/Core (= 5.10.4)
+  - SDWebImage/Core (5.10.4)
+  - SnapKit (5.0.1)
+  - SVProgressHUD (2.2.5)
+  - SwiftEntryKit (1.2.3):
+    - QuickLayout (= 3.0.0)
+  - SwiftKeychainWrapper (4.0.1)
+  - SwiftyJSON (5.0.1)
+  - Toast-Swift (5.0.1)
+  - ViewAnimator (3.0.2)
+  - VKPinCodeView (0.4.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2.0)
+  - AlamofireObjectMapper (from `https://github.com/RomanPodymov/AlamofireObjectMapper.git`, branch `master`)
+  - Device
+  - DropDown
+  - IQKeyboardManager
+  - OneSignal (< 4.0, >= 3.0.0)
+  - ParallaxHeader (~> 3.0.0)
+  - PTCardTabBar
+  - RealmSwift
+  - RSReusable
+  - SDWebImage (~> 5.10.4)
+  - SnapKit
+  - SVProgressHUD
+  - SwiftEntryKit (= 1.2.3)
+  - SwiftKeychainWrapper
+  - SwiftyJSON
+  - Toast-Swift (~> 5.0.1)
+  - ViewAnimator (= 3.0.2)
+  - VKPinCodeView
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Device
+    - DropDown
+    - IQKeyboardManager
+    - ObjectMapper
+    - OneSignal
+    - ParallaxHeader
+    - PTCardTabBar
+    - QuickLayout
+    - Realm
+    - RealmSwift
+    - RSReusable
+    - SDWebImage
+    - SnapKit
+    - SVProgressHUD
+    - SwiftEntryKit
+    - SwiftKeychainWrapper
+    - SwiftyJSON
+    - Toast-Swift
+    - ViewAnimator
+    - VKPinCodeView
+
+EXTERNAL SOURCES:
+  AlamofireObjectMapper:
+    :branch: master
+    :git: https://github.com/RomanPodymov/AlamofireObjectMapper.git
+
+CHECKOUT OPTIONS:
+  AlamofireObjectMapper:
+    :commit: fe40bd0c4944d27ebf75d6a46382b2421b113ca1
+    :git: https://github.com/RomanPodymov/AlamofireObjectMapper.git
+
+SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  AlamofireObjectMapper: abe058eaad24646e52bd6122f232020284cfd46a
+  Device: 0738862dd8a30856b4bd9e21cb9b728873d21392
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  IQKeyboardManager: 241cc94ccabc9deb8f8bd7d12f00d73288d13ecc
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  OneSignal: 198da4de73fb7bd6e45bc04221a7f16efca057ad
+  ParallaxHeader: a343f55eb38f52a89c5820a77e14cf975b84e6aa
+  PTCardTabBar: 9f94e31b447629aead75cd21cdaa6ae1f2c8bac6
+  QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
+  Realm: fac5ecd031fcb81171627b74944c885662d4b266
+  RealmSwift: 9b02d25acb46a14756bde9893abb99e2e3675923
+  RSReusable: 747c780d4ae859d3504763627e54ab8bc5439b08
+  SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftEntryKit: 340713c2e4a6662c5149629990bf1088bf5f0389
+  SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  ViewAnimator: 16435576cd44fca0b0d63147d5031fd3e91d295a
+  VKPinCodeView: 8d711959a080fec9e6aac165f7225d55b54a24ae
+
+PODFILE CHECKSUM: 8885eca3608bdbfa0e5d0de78584d06dfbaea468
+
+COCOAPODS: 1.11.2

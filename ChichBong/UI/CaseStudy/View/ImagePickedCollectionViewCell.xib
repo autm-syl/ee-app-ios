@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImagePickedCollectionViewCell" id="gTV-IL-0wX" customClass="ImagePickedCollectionViewCell" customModule="ChichBong" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="220" height="211"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="220" height="211"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LkC-Ec-LT5">
+                        <rect key="frame" x="0.0" y="44" width="220" height="167"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EqZ-tk-fqh" userLabel="add more">
+                        <rect key="frame" x="0.0" y="46" width="220" height="163"/>
+                        <color key="tintColor" red="1" green="0.88710105009999995" blue="0.63917091910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" backgroundImage="plus" catalog="system"/>
+                        <connections>
+                            <action selector="addImageBtnClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="3LI-qN-h2H"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" red="0.93397217990000003" green="0.95580071209999995" blue="0.95592433210000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="EqZ-tk-fqh" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="CAg-NX-5Y7"/>
+                <constraint firstItem="EqZ-tk-fqh" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" id="LPZ-Os-XOp"/>
+                <constraint firstItem="LkC-Ec-LT5" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="Otb-U4-ju6"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="EqZ-tk-fqh" secondAttribute="trailing" id="oAo-HA-ZtM"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="LkC-Ec-LT5" secondAttribute="top" id="pp8-y9-hqI"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="LkC-Ec-LT5" secondAttribute="bottom" id="usi-nx-BrK"/>
+                <constraint firstItem="LkC-Ec-LT5" firstAttribute="trailing" secondItem="ZTg-uK-7eu" secondAttribute="trailing" id="v8Y-0f-JjH"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="EqZ-tk-fqh" secondAttribute="bottom" id="z4c-6z-HRg"/>
+            </constraints>
+            <size key="customSize" width="220" height="211"/>
+            <connections>
+                <outlet property="addmoreBtn" destination="EqZ-tk-fqh" id="Ttb-ul-iT8"/>
+                <outlet property="previewImg" destination="LkC-Ec-LT5" id="PFD-Q0-cL7"/>
+            </connections>
+            <point key="canvasLocation" x="255.07246376811597" y="138.95089285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+    </resources>
+</document>

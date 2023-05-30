@@ -1,73 +1,76 @@
 //
-//  WishListViewController.swift
+//  OrderCheckViewController.swift
 //  ChichBong
 //
-//  Created by Sylvanas on 4/20/21.
+//  Created by Sylvanas on 4/23/21.
 //
 
 import UIKit
+import SVProgressHUD
+import Toast_Swift
 
-class WishListViewController: UIViewController {
-    @IBOutlet weak var createNew: UIButton!
-    @IBOutlet weak var collectionQA: UICollectionView!
+class CaseStudyViewController: BaseViewController {
+    @IBOutlet weak var collectionCS: UICollectionView!
     
     var refresher:UIRefreshControl!
     let inset: CGFloat = 10
     let minimumLineSpacing: CGFloat = 5
     let minimumInteritemSpacing: CGFloat = 5
     
-    let QAdata = QAViewData.init()
-    
+    let caseStudyData = CaseStudyData.init()
     var lstData:[DocumentObj] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        getListQA()
+        getListCS()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
-        //
         super.viewWillAppear(animated)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+       
     }
     
     private func setup() {
         self.refresher = UIRefreshControl()
-        self.collectionQA!.alwaysBounceVertical = true
+        self.collectionCS!.alwaysBounceVertical = true
         self.refresher.tintColor = UIColor.red
         self.refresher.addTarget(self, action: #selector(reloadNewsCollectionData), for: .valueChanged)
-        self.collectionQA!.addSubview(refresher)
+        self.collectionCS!.addSubview(refresher)
         
         let layoutmain: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//        layoutmain.scrollDirection = .horizontal
-        collectionQA.collectionViewLayout = layoutmain
-        collectionQA.delegate = self
-        collectionQA.dataSource = self
-        collectionQA.register(UINib(nibName: "QACollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "QACollectionViewCell")
+        collectionCS.collectionViewLayout = layoutmain
+        collectionCS.delegate = self
+        collectionCS.dataSource = self
+        collectionCS.register(UINib(nibName: "QACollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "QACollectionViewCell")
     }
     
     @objc func reloadNewsCollectionData() {
         refresher.beginRefreshing()
         
-        getListQA()
+        getListCS()
     }
     
-    func getListQA() {
+    func getListCS() {
         lstData = []
-        QAdata.getAllQAData { [self] documents, error in
+        caseStudyData.getAllCaseStudyData { [self] documents, error in
             if documents != nil {
                 lstData = documents!.Data
-                collectionQA.reloadData()
-                
+                collectionCS.reloadData()
                 refresher.endRefreshing()
+            } else {
+                if error?.mErrorCode == 401 {
+                    self.showError(mess: "Lỗi xác thực tài khoản!\nCó ai đó đã đăng nhập trên thiết bị khác.")
+                }
             }
         }
     }
-    
 
     /*
     // MARK: - Navigation
@@ -79,17 +82,25 @@ class WishListViewController: UIViewController {
     }
     */
 
-    @IBAction func menuClick(_ sender: Any) {
+    @IBAction func menuCicked(_ sender: Any) {
         NotificationCenter.default.post(name:.toggleLeftMenu, object: nil);
     }
     @IBAction func createNewBtnClicked(_ sender: Any) {
-        let newQAViewController = CreateNewQAViewController(nibName: "CreateNewQAViewController", bundle: nil)
-        self.navigationController?.pushViewController(newQAViewController, animated: true)
+        let csViewController = CreateCaseStudyViewController(nibName: "CreateCaseStudyViewController", bundle: nil)
+        csViewController.delegate = self
+        self.navigationController?.pushViewController(csViewController, animated: true)
     }
     
+    func ShowBottomToastWith(title: String, messColor: UIColor) {
+        var style = ToastStyle()
+        style.messageColor = messColor
+        self.view.makeToast(title, duration: 3.5, position: .bottom, style: style)
+        ToastManager.shared.isTapToDismissEnabled = true
+        ToastManager.shared.isQueueEnabled = true
+    }
+   
 }
-
-extension WishListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension CaseStudyViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
@@ -117,13 +128,13 @@ extension WishListViewController: UICollectionViewDataSource, UICollectionViewDe
         cell.nameLbl.text = item.Name
         let text = Util.share.matchesReplaceHtml(in: item.Content)
         cell.contentLbl.text = text
-        cell.contentLbl.numberOfLines = 6;
+        cell.contentLbl.numberOfLines = 12;
         cell.createByLbl.text = "\(item.Created_by_name ?? "none")"
         cell.createAtLbl.text = "\(item.Created_at)"
         cell.moreBtnLbl.setTitle("Trả lời >", for: .normal)
         cell.delegate = self
         cell.thisCellIndex = indexPath.row
-        cell.contentHeightConstraints.constant = 100
+        cell.contentHeightConstraints.constant = 150
         
         return cell
     }
@@ -135,7 +146,7 @@ extension WishListViewController: UICollectionViewDataSource, UICollectionViewDe
         let marginsAndInsets = inset * 2 + collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right + minimumInteritemSpacing * CGFloat(2 - 1)
         let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(2)).rounded(.down)
         
-        return CGSize(width: itemWidth, height: 250)
+        return CGSize(width: itemWidth, height: 300)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -143,23 +154,50 @@ extension WishListViewController: UICollectionViewDataSource, UICollectionViewDe
         let item = lstData[indexPath.row]
 
         DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) {
+            let reamlObj = Documentation()
+            reamlObj.id = item.Id
+            reamlObj.name = item.Name
+            reamlObj.content = item.Content
+            reamlObj.dirfile = ""
+            reamlObj.created = Date()
+            reamlObj.type = DocumentType.CaseStudy
+            
+            
             let newsController = NewsViewController(nibName: "NewsViewController", bundle: nil)
-            newsController.staticLink = "http://3.16.29.132/document-view/\(item.Id)?token=\(Globalvariables.shareInstance.token_auth)"
+            newsController.staticLink = "http://45.76.156.52/document-view/\(item.Id)?token=\(Globalvariables.shareInstance.token_auth)"
             newsController.headerTitleSet = item.Name
+            newsController.documentype = DocumentType.CaseStudy
+            newsController.reamlDocument = reamlObj
             self.navigationController?.pushViewController(newsController, animated: true)
         }
     }
 }
 
-extension WishListViewController:QACollectionViewCellDelegate {
+extension CaseStudyViewController:QACollectionViewCellDelegate {
     func readMoreBtnClicked(index: Int) {
         let item = lstData[index]
         
         DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) {
+            let reamlObj = Documentation()
+            reamlObj.id = item.Id
+            reamlObj.name = item.Name
+            reamlObj.content = item.Content
+            reamlObj.dirfile = ""
+            reamlObj.created = Date()
+            reamlObj.type = DocumentType.CaseStudy
+            
             let newsController = NewsViewController(nibName: "NewsViewController", bundle: nil)
-            newsController.staticLink = "http://3.16.29.132/document-view/\(item.Id)?token=\(Globalvariables.shareInstance.token_auth)"
+            newsController.staticLink = "http://45.76.156.52/document-view/\(item.Id)?token=\(Globalvariables.shareInstance.token_auth)"
             newsController.headerTitleSet = item.Name
+            newsController.documentype = DocumentType.CaseStudy
+            newsController.reamlDocument = reamlObj
             self.navigationController?.pushViewController(newsController, animated: true)
         }
+    }
+}
+
+extension CaseStudyViewController:CreateCaseStudyViewControllerDelegate {
+    func createCastudySuccess() {
+        getListCS()
     }
 }

@@ -17,6 +17,7 @@ class NewsViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var wkwebView: WKWebView!
     @IBOutlet weak var downLoadBtn: UIButton!
+    @IBOutlet weak var backBtn: UIButton!
     
     
     var contentHtmlString:[String] = []
@@ -24,12 +25,21 @@ class NewsViewController: UIViewController {
     var documentype:Int = 0
     var isStaticLink:Bool = true
     var reamlDocument:Documentation?
+    var isStaticPageLoad: Bool = false
     
     open var headerTitleSet:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        
+        if isStaticPageLoad {
+            backBtn.isHidden = true
+            downLoadBtn.isHidden = true
+        } else {
+            backBtn.isHidden = false
+            downLoadBtn.isHidden = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,11 +65,11 @@ class NewsViewController: UIViewController {
             $0.text = headerTitleSet
         }
         
-        if documentype == DocumentType.html || documentype == DocumentType.CaseStudy {
-            self.downLoadBtn.isHidden = false
-        } else {
-            self.downLoadBtn.isHidden = true
-        }
+//        if documentype == DocumentType.html || documentype == DocumentType.CaseStudy {
+//            self.downLoadBtn.isHidden = false
+//        } else {
+//            self.downLoadBtn.isHidden = true
+//        }
 
     }
     

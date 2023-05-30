@@ -8,7 +8,11 @@
 import UIKit
 import Toast_Swift
 
-class CreateNewQAViewController: UIViewController {
+protocol CreateNewQAViewControllerDelegate: AnyObject {
+    func createNewQASuccess()
+}
+
+class CreateNewQAViewController: BaseViewController {
     @IBOutlet weak var nameQAField: UITextField!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var createBtn: UIButton!
@@ -29,6 +33,8 @@ class CreateNewQAViewController: UIViewController {
             _isActiveBtn = value
         }
     }
+    
+    weak var delegate:CreateNewQAViewControllerDelegate?
     
     var prevText: String = ""
     let editorView = UITextView()
@@ -83,13 +89,22 @@ class CreateNewQAViewController: UIViewController {
                     var style = ToastStyle.init();
                     style.messageColor = #colorLiteral(red: 0.7412630916, green: 0.6745089293, blue: 0.4580433369, alpha: 1)
                     self.view.makeToast("‼️", duration: 4.0, position: .bottom, title: "Tạo câu hỏi lỗi\nHãy thử lại sau!", image: nil, style: style, completion: nil)
+                    
+                    if error?.mErrorCode == 401 {
+                        self.showError(mess: "Lỗi xác thực tài khoản!\nCó ai đó đã đăng nhập trên thiết bị khác.")
+                    }
+                    
                     return;
                 }
                 
                 var style = ToastStyle.init();
                 style.messageColor = #colorLiteral(red: 0.00246796431, green: 0.6601009965, blue: 0.6580886245, alpha: 1)
-                self.view.makeToast("✅", duration: 4.0, position: .bottom, title: "Tạo câu hỏi lỗi thành công", image: nil, style: style, completion: nil)
-                self.navigationController?.popViewController(animated: true)
+                self.view.makeToast("✅", duration: 4.0, position: .bottom, title: "Tạo câu hỏi thành công", image: nil, style: style, completion: nil)
+                
+                DispatchQueue.main.asyncAfter(wallDeadline: .now() + 2.5) {
+                    delegate?.createNewQASuccess()
+                    self.navigationController?.popViewController(animated: true)
+                }
                 
             }
         }

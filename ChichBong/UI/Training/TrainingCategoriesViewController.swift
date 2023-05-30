@@ -9,7 +9,7 @@ import UIKit
 import SVProgressHUD
 import Toast_Swift
 
-class TrainingCategoriesViewController: UIViewController {
+class TrainingCategoriesViewController: BaseViewController {
     @IBOutlet weak var categoriesQuestTable: UITableView!
     
     let traingData = TrainingData.init()
@@ -40,11 +40,37 @@ class TrainingCategoriesViewController: UIViewController {
         firstItem.id = -1;
         firstItem.name = "Tất cả"
         lstData = [firstItem]
+        
+        traingData.getAllQuestLevelData { [self] qestLevels, error in
+            SVProgressHUD.dismiss()
+            if error == nil {
+                if qestLevels.count > 0 {
+                    for item in qestLevels {
+                        let lvlItem = QuestCategory.init()
+                        lvlItem.id = -1;
+                        lvlItem.name = "Bậc \(item.level_quest)"
+                        lvlItem.level = item.level_quest
+                        lvlItem.total_quest = item.total_quest
+                        lstData.append(lvlItem)
+                    }
+                }
+                categoriesQuestTable.reloadData()
+            } else {
+                if error?.mErrorCode == 401 {
+                    self.showError(mess: "Lỗi xác thực tài khoản!\nCó ai đó đã đăng nhập trên thiết bị khác.")
+                }
+            }
+        }
+        
         traingData.getAllQuestCategoryData { [self] qestCate, error in
             SVProgressHUD.dismiss()
             if error == nil {
                 lstData.append(contentsOf: qestCate)
                 categoriesQuestTable.reloadData()
+            } else {
+                if error?.mErrorCode == 401 {
+                    self.showError(mess: "Lỗi xác thực tài khoản!\nCó ai đó đã đăng nhập trên thiết bị khác.")
+                }
             }
         }
     }
@@ -70,22 +96,21 @@ extension TrainingCategoriesViewController: UITableViewDelegate, UITableViewData
         return true;
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let item = Globalvariables.shareInstance.documentsLocal![indexPath.row]
-            Globalvariables.shareInstance.removeDocument(doc: item)
-            tableView.reloadData()
-        }
-    }
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrainingCategoryTableViewCell", for: indexPath) as! TrainingCategoryTableViewCell
 
         let item = lstData[indexPath.row]
         
         cell.nameLbl.text = item.name
-        cell.totalLbl.text = "Tổng số câu hỏi: chưa ước lượng"
+        
+        if item.name != "Tất cả" {
+            cell.totalLbl.text = "Tổng số câu hỏi: \(item.total_quest)"
+            cell.totalLbl.isHidden = false
+        } else {
+            cell.totalLbl.text = "Tất cả"
+            cell.totalLbl.isHidden = true
+        }
+        
     
         return cell
     }
@@ -94,24 +119,59 @@ extension TrainingCategoriesViewController: UITableViewDelegate, UITableViewData
         //
         let item = lstData[indexPath.row]
         
-        SVProgressHUD.show()
-        traingData.getQuestbyCategoryId(categoryId: item.id) { questResult, error in
-            //
-            SVProgressHUD.dismiss()
-            if error == nil {
-                if questResult!.total > 0 {
-                    let quests = questResult
-                    let newsController = TraingViewController(nibName: "TraingViewController", bundle: nil)
-                    newsController.data = quests;
-                    self.navigationController?.pushViewController(newsController, animated: true)
+        if item.level == -1 {
+            SVProgressHUD.show()
+            traingData.getQuestbyCategoryId(categoryId: item.id) { questResult, error in
+                //
+                SVProgressHUD.dismiss()
+                if error == nil {
+                    if questResult!.total > 0 {
+                        let quests = questResult
+                        
+                        quests?.quests.shuffle()
+                        
+                        let newsController = TraingViewController(nibName: "TraingViewController", bundle: nil)
+                        newsController.data = quests;
+                        self.navigationController?.pushViewController(newsController, animated: true)
+                    } else {
+                        var style = ToastStyle.init();
+                        style.messageColor = #colorLiteral(red: 0.7412630916, green: 0.6745089293, blue: 0.4580433369, alpha: 1)
+                        self.view.makeToast("‼️", duration: 4.0, position: .bottom, title: "Chưa có câu hỏi cho lĩnh vực này!", image: nil, style: style, completion: nil)
+                    }
+                    
                 } else {
-                    var style = ToastStyle.init();
-                    style.messageColor = #colorLiteral(red: 0.7412630916, green: 0.6745089293, blue: 0.4580433369, alpha: 1)
-                    self.view.makeToast("‼️", duration: 4.0, position: .bottom, title: "Chưa có câu hỏi cho lĩnh vực này!", image: nil, style: style, completion: nil)
+                    if error?.mErrorCode == 401 {
+                        self.showError(mess: "Lỗi xác thực tài khoản!\nCó ai đó đã đăng nhập trên thiết bị khác.")
+                    }
                 }
-                
+            }
+        } else {
+            SVProgressHUD.show()
+            traingData.getQuestbyCategoryLevel(level: item.level) { questResult, error in
+                //
+                SVProgressHUD.dismiss()
+                if error == nil {
+                    if questResult!.total > 0 {
+                        let quests = questResult
+                        quests?.quests.shuffle()
+                        let newsController = TraingViewController(nibName: "TraingViewController", bundle: nil)
+                        newsController.data = quests;
+                        self.navigationController?.pushViewController(newsController, animated: true)
+                    } else {
+                        var style = ToastStyle.init();
+                        style.messageColor = #colorLiteral(red: 0.7412630916, green: 0.6745089293, blue: 0.4580433369, alpha: 1)
+                        self.view.makeToast("‼️", duration: 4.0, position: .bottom, title: "Chưa có câu hỏi cho lĩnh vực này!", image: nil, style: style, completion: nil)
+                    }
+                    
+                } else {
+                    if error?.mErrorCode == 401 {
+                        self.showError(mess: "Lỗi xác thực tài khoản!\nCó ai đó đã đăng nhập trên thiết bị khác.")
+                    }
+                }
             }
         }
+        
+        
         
         
         

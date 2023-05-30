@@ -42,13 +42,7 @@ class ThirdViewController: UIViewController {
     }
     
     func updateLocationUser(location: String) {
-        SVProgressHUD.show()
-        MonConnection.requestCustom(APIRouter.updateProfile(Adr1: "", Adr2: "", Birthday: "", Device_id: "", Device_name: UIDevice.current.model, Fb_id: "", Gender: 0, Name: "", Old: 0, Phone_num: "", User_name: "", Pass: "", User_location: location, Avatar: "")) { (result, error) in
-            //
-            NotificationCenter.default.post(name:.goIntoApp, object: nil);
-            SVProgressHUD.dismiss()
-        }
-        
+        NotificationCenter.default.post(name:.goIntoApp, object: nil);
         OneSignal.sendTag("location", value: location);
 
     }

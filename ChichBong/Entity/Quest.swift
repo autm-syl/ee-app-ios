@@ -69,5 +69,10 @@ class QuestsObj: Mappable {
          Created_at <- map["Created_at"];
          Updated_at <- map["Updated_at"];
          
+         Created_at = Created_at.replacingOccurrences(of: "T", with: " ")
+         Created_at = Created_at.replacingOccurrences(of: "Z", with: "")
+         
+         Updated_at = Updated_at.replacingOccurrences(of: "T", with: " ")
+         Updated_at = Updated_at.replacingOccurrences(of: "Z", with: "")
     }
 }

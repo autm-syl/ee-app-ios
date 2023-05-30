@@ -9,6 +9,7 @@ import UIKit
 import QuartzCore
 
 import SVProgressHUD
+import Toast_Swift
 
 
 let pulsator = Pulsator()
@@ -26,13 +27,30 @@ class LauncherViewController: UIViewController, CAAnimationDelegate {
         setupInitialValues()
         pulsator.start()
 
-//        NotificationCenter.default.post(name:.goMainHome, object: nil);
         if (Globalvariables.shareInstance.token_auth == "") {
             // go introview
-            NotificationCenter.default.post(name:.goIntoIntroview, object: nil);
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                NotificationCenter.default.post(name:.goIntoIntroview, object: nil);
+            }
         } else {
-            self.perform(#selector(showAppNow), with: nil, afterDelay: 1.25)
+            getMyInformation { [self] success in
+                if success {
+                    self.perform(#selector(showAppNow), with: nil, afterDelay: 0.25)
+                } else {
+                    var style = ToastStyle()
+                    style.messageColor = #colorLiteral(red: 0.8487177491, green: 0.3503796458, blue: 0.3862038851, alpha: 1)
+                    self.view.makeToast("Có ai đó đã đăng nhập trên một thiết bị khác!", duration: 5.0, position: .bottom, title: "Xác thực tài khoản thất bại", image: nil, style: style) { didTap in
+                        //
+                        NotificationCenter.default.post(name:.goIntoIntroview, object: nil);
+                    }
+                    
+                    ToastManager.shared.isTapToDismissEnabled = true
+                    ToastManager.shared.isQueueEnabled = true
+                }
+            }
         }
+        
+        
         
     }
     
@@ -57,12 +75,6 @@ class LauncherViewController: UIViewController, CAAnimationDelegate {
         pulsator.animationDuration = 8.0
         
         pulsator.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-        
-//        pulsator.backgroundColor = UIColor(
-//            red: CGFloat(31.0/255),
-//                    green: CGFloat(146.0/255),
-//                    blue: CGFloat(252.0/255),
-//            alpha: CGFloat(1.0)).cgColor
     }
     
 
@@ -71,104 +83,24 @@ class LauncherViewController: UIViewController, CAAnimationDelegate {
         NotificationCenter.default.post(name:.goIntoApp, object: nil);
     }
     
-    func checkToken() {
-        
-    }
-    
-    func getFavorite() {
-    }
-
-}
-
-
-import ObjectMapper
-
-class UserInformationResult: Mappable {
-    var Profile:UserInformationObj? = nil
-    init(){}
-    required init?(map: Map) {
-    }
-   
-     func mapping(map: Map) {
-        Profile <- map["Data"]
-    }
-}
-
-class UserInformationObj: Mappable {
-    var Id:Int = 0
-    var Fb_id:String = ""
-    var Phone_num:String = ""
-    var User_name:String = ""
-    var Adr1:String = ""
-    var Adr2:String = ""
-    var Device_id:String = ""
-    var Old:String = ""
-    var Birthday:String = ""
-    var Gender:String = ""
-    var Time_reg:String = ""
-    var Device_name:String = ""
-    var User_type:String = ""
-    var Name:String = ""
-    var Avatar:String = ""
-    
-    
-    
-    
-    init(){}
-    required init?(map: Map) {
-    }
-   
-     func mapping(map: Map) {
-        Id <- map["Id"]
-        Fb_id <- map["Fb_id"]
-        Phone_num <- map["Phone_num"]
-        User_name <- map["User_name"]
-        Adr1 <- map["Adr1"]
-        Adr2 <- map["Adr2"]
-        Device_id <- map["Device_id"]
-        Old <- map["Old"]
-        Birthday <- map["Birthday"]
-        Gender <- map["Gender"]
-        Time_reg <- map["Time_reg"]
-        Device_name <- map["Device_name"]
-        User_type <- map["User_type"]
-        Name <- map["Name"]
-        Avatar <- map["Avatar"]
-    }
-}
-
-class FavoriteResult: Mappable {
-    var favorites:[FavoritesObj] = []
-    init(){}
-    required init?(map: Map) {
-    }
-   
-     func mapping(map: Map) {
-        favorites <- map["Data.Favorites"]
-    }
-}
-
-class FavoritesObj: Mappable {
-    var id: Int = 0
-    var item_id: Int = 0
-    var time_like: Int = 0
-    var note: String = ""
-    
-    
-    init(){}
-    required init?(map: Map) {
-    }
-   
-     func mapping(map: Map) {
-        id <- map["Id"]
-        var item: Any?
-        item <- map["Item"]
-        if item != nil {
-            item_id <- map["Item.Id"]
+    func getMyInformation( completion: @escaping(Bool) -> Void) {
+        MonConnection.requestCustom(APIRouter.me) { result, error in
+            //
+            if error != nil {
+                completion(false)
+                return;
+            }
+            
+            let user = UserResult.init(JSON: result!)
+            
+            if user!.message == "Success" {
+                Globalvariables.shareInstance.thisUserOnDevice = user!.user
+                completion(true)
+                return;
+            } else {
+                completion(false)
+                return;
+            }
         }
-        
-        
-        time_like <- map["Time_like"]
-        note <- map["Note"]
     }
 }

@@ -30,13 +30,13 @@ class CateExpandTableViewCell: UITableViewCell {
         self.leadingConstraint.constant = leadingValueForChildrenCell * CGFloat(level + 1)
         switch level {
         case 0:
-            self.detailedLabel.font = UIFont.systemFont(ofSize: 16)
+            self.detailedLabel.font = UIFont.systemFont(ofSize: 15)
         case 1:
-            self.detailedLabel.font = UIFont.systemFont(ofSize: 12)
+            self.detailedLabel.font = UIFont.systemFont(ofSize: 15)
         case 2:
-            self.detailedLabel.font = UIFont.systemFont(ofSize: 10)
+            self.detailedLabel.font = UIFont.systemFont(ofSize: 15)
         default:
-            self.detailedLabel.font = UIFont.systemFont(ofSize: 10)
+            self.detailedLabel.font = UIFont.systemFont(ofSize: 15)
         }
         if level > 0 {
             iconImg.isHidden = true

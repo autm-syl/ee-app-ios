@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SVN-Poppins-SemiBold.ttf">
+            <string>SVN-PoppinsSemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StandardsViewController" customModule="ChichBong" customModuleProvider="target">
+            <connections>
+                <outlet property="clearSearchBtn" destination="kdZ-vj-tXz" id="pRg-kg-dt4"/>
+                <outlet property="listStandardTableView" destination="dtH-J7-jZg" id="92R-zq-OUS"/>
+                <outlet property="searchTextField" destination="rLD-ZT-GGv" id="IVw-ha-S2v"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tìm kiếm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rLD-ZT-GGv">
+                    <rect key="frame" x="10" y="109" width="394" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="5aC-Wc-qzm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ptz-cr-14b" userLabel="header control">
+                    <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAD-Cj-AWQ" userLabel="back">
+                            <rect key="frame" x="15" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="aAD-Cj-AWQ" secondAttribute="height" multiplier="1:1" id="KtP-ah-rrF"/>
+                            </constraints>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="16" maxX="30" maxY="16"/>
+                            <state key="normal" image="backIcon"/>
+                            <connections>
+                                <action selector="backBtnClicked:" destination="-1" eventType="touchUpInside" id="YHi-Dy-0fn"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiêu chuẩn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufE-Ju-Dy2">
+                            <rect key="frame" x="167.5" y="15" width="79" height="20"/>
+                            <fontDescription key="fontDescription" name="SVN-PoppinsSemiBold" family="SVN-Poppins" pointSize="14"/>
+                            <color key="textColor" red="0.1447098255" green="0.15669330949999999" blue="0.16919142009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="aAD-Cj-AWQ" firstAttribute="leading" secondItem="Ptz-cr-14b" secondAttribute="leading" constant="15" id="2TS-OR-625"/>
+                        <constraint firstAttribute="height" constant="50" id="9Fn-rL-Aof"/>
+                        <constraint firstItem="ufE-Ju-Dy2" firstAttribute="centerY" secondItem="Ptz-cr-14b" secondAttribute="centerY" id="X3I-53-0WD"/>
+                        <constraint firstItem="ufE-Ju-Dy2" firstAttribute="centerX" secondItem="Ptz-cr-14b" secondAttribute="centerX" id="kfw-DU-RUX"/>
+                        <constraint firstItem="aAD-Cj-AWQ" firstAttribute="height" secondItem="Ptz-cr-14b" secondAttribute="height" id="tBI-u6-eTK"/>
+                        <constraint firstItem="aAD-Cj-AWQ" firstAttribute="centerY" secondItem="Ptz-cr-14b" secondAttribute="centerY" id="v8m-X3-aaa"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dtH-J7-jZg">
+                    <rect key="frame" x="0.0" y="153" width="414" height="709"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdZ-vj-tXz" userLabel="clear search">
+                    <rect key="frame" x="358" y="108" width="46" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="VoB-BA-KeC"/>
+                        <constraint firstAttribute="height" constant="46" id="aRI-oy-Q69"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Button" image="closeIcon"/>
+                    <connections>
+                        <action selector="clearSearchBtnClicked:" destination="-1" eventType="touchUpInside" id="VyV-bH-gwc"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="rLD-ZT-GGv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="65" id="AO0-5Z-oDj"/>
+                <constraint firstItem="Ptz-cr-14b" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="AgD-HU-MPs"/>
+                <constraint firstItem="kdZ-vj-tXz" firstAttribute="centerY" secondItem="rLD-ZT-GGv" secondAttribute="centerY" id="DOI-qj-fYh"/>
+                <constraint firstItem="kdZ-vj-tXz" firstAttribute="trailing" secondItem="rLD-ZT-GGv" secondAttribute="trailing" id="MFY-0t-cCi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dtH-J7-jZg" secondAttribute="trailing" id="Mj7-xU-Tef"/>
+                <constraint firstItem="rLD-ZT-GGv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="QXg-2C-pKk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dtH-J7-jZg" secondAttribute="bottom" id="YPl-hX-855"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rLD-ZT-GGv" secondAttribute="trailing" constant="10" id="bHy-9S-7uK"/>
+                <constraint firstItem="dtH-J7-jZg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hm5-eG-KkE"/>
+                <constraint firstItem="Ptz-cr-14b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qmm-2A-NMk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ptz-cr-14b" secondAttribute="trailing" id="tHb-b9-flQ"/>
+                <constraint firstItem="dtH-J7-jZg" firstAttribute="top" secondItem="rLD-ZT-GGv" secondAttribute="bottom" id="vWx-dg-ik8"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="92.410714285714278"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backIcon" width="32" height="32"/>
+        <image name="closeIcon" width="48" height="48"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

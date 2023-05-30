@@ -31,7 +31,7 @@ class SearchViewController: UIViewController {
     let minimumInteritemSpacing: CGFloat = 5
     
     let searchViewData = SearchViewData.init()
-    var dataTableResult:[DocumentObj] = []
+    var dataTableResult:[SearchDocumentationsObj] = []
     
     var curentDocTypeSearch = DocumentType.html
     
@@ -110,6 +110,13 @@ class SearchViewController: UIViewController {
             sheetChooseTypeSearch.dismiss(animated: true, completion: nil)
         }))
         
+        if ( UIDevice.current.userInterfaceIdiom == .pad )
+        {
+            if let popoverPresentationController = sheetChooseTypeSearch.popoverPresentationController {
+                popoverPresentationController.sourceView = (sender as! UIView)
+                popoverPresentationController.sourceRect = (sender as! UIButton).bounds
+            }
+        }
         
         self.present(sheetChooseTypeSearch, animated: true, completion: nil)
     }
@@ -121,13 +128,16 @@ class SearchViewController: UIViewController {
     
     func searchProduct(query:String) {
         SVProgressHUD.show()
-        searchViewData.searchDocumentation(queryName: query, documentType: curentDocTypeSearch) { [self] documents, error in
+        
+        let escapedString = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        
+        searchViewData.searchDocumentation(queryName: escapedString ?? "", documentType: curentDocTypeSearch) { [self] documents, error in
             //
             SVProgressHUD.dismiss()
-            if documents != nil {
-                dataTableResult = documents!.Data
-                itemCollection.reloadData()
-            }
+            
+            dataTableResult = documents
+            itemCollection.reloadData()
+            
         }
     }
 }
@@ -157,9 +167,14 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductNewCell", for: indexPath) as! ProductNewCell
         
         let item = dataTableResult[indexPath.row]
-        let text = Util.share.matchesReplaceHtml(in: item.Content)
-        cell.productName.text = item.Name
-        cell.productDes.text = text
+        if item.Doc_type == DocumentType.html {
+            cell.productName.text = item.Name;
+            cell.productDes.text = item.Sub_name;
+        } else {
+            let text = Util.share.matchesReplaceHtml(in: item.Content)
+            cell.productName.text = item.Name
+            cell.productDes.text = text
+        }
       
         return cell
     }
@@ -189,7 +204,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
             reamlObj.type = item.Doc_type
             
             let newsController = NewsViewController(nibName: "NewsViewController", bundle: nil)
-            newsController.staticLink = "http://3.16.29.132/document-view/\(item.Id)?token=\(Globalvariables.shareInstance.token_auth)"
+            newsController.staticLink = "http://45.76.156.52/document-view/\(item.Id)?token=\(Globalvariables.shareInstance.token_auth)"
             newsController.headerTitleSet = item.Name
             newsController.documentype = item.Doc_type
             newsController.reamlDocument = reamlObj
@@ -209,10 +224,11 @@ extension SearchViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let query = textField.text
-        if (query != "") {
-            searchProduct(query: query!)
-        }
+//        let query = textField.text
+//        if (query != "") {
+//            searchProduct(query: query!)
+//        }
+        self.view.endEditing(true)
         return true
     }
 }

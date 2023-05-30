@@ -68,12 +68,16 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>EVNBook muốn truy cập thư mục media</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Camera usage description</string>
+	<string>EVNBook muốn sử dụng camera</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location when in use usage description</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>EVNBook muốn sử dụng micro</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Photo Library Access Warning</string>
+	<string>EVNBook muốn truy cập thư mục ảnh</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Mitr-Regular.ttf</string>

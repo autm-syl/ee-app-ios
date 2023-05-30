@@ -27,8 +27,7 @@ class Globalvariables {
     
     var activeStartTime:Double = 0
     
-
-    var documentsLocal:Results<Documentation>?
+    var thisUserOnDevice: UserObj?
     
     private init () {
         _ = ""
@@ -37,14 +36,14 @@ class Globalvariables {
         self.getUserName();
         self.getUserId()
         self.getAvatar();
-        self.getAllLocalDocuments()
     }
     
-    func getAllLocalDocuments() {
+    func GetDocSave() -> Results<Documentation>? {
         let realm = try! Realm()
         
         let dogs = realm.objects(Documentation.self)
-        documentsLocal = dogs
+        
+        return dogs
     }
     
     func saveDocument(doc: Documentation) {
@@ -53,9 +52,18 @@ class Globalvariables {
         try! realm.write {
             realm.add(doc, update: .modified)
         }
+   
+        realm.refresh()
+    }
+    
+    func saveDocumentFileStatic(doc: Documentation) {
+        let realm = try! Realm()
         
-        let dogs = realm.objects(Documentation.self)
-        documentsLocal = dogs
+        try! realm.write {
+            realm.add(doc, update: .modified)
+        }
+        
+        realm.refresh()
     }
     
     func removeDocument(doc: Documentation) {
@@ -64,9 +72,6 @@ class Globalvariables {
         try! realm.write {
             realm.delete(doc)
         }
-        
-        let dogs = realm.objects(Documentation.self)
-        documentsLocal = dogs
     }
     
     func clearAllData() {
@@ -74,6 +79,8 @@ class Globalvariables {
         self.setUserName(username: "");
         self.setUserId(userId: 0);
         self.setAvatar(avatar: "");
+        
+        self.thisUserOnDevice = nil
         
         let realm = try! Realm()
         try! realm.write {

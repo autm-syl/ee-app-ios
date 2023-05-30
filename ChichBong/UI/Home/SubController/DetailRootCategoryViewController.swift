@@ -28,7 +28,6 @@ class DetailRootCategoryViewController: UIViewController {
         setupLayout()
     }
 
-
     func setupView() {
         self.treeView.apply {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +38,7 @@ class DetailRootCategoryViewController: UIViewController {
             $0.estimatedRowHeight = 30;
             $0.register(UINib(nibName: "CateExpandTableViewCell", bundle: nil), forCellReuseIdentifier: "CateExpandTableViewCell")
             $0.reloadData()
-            $0.expandAllRows()
+//            $0.expandAllRows()
         }
 
         self.bottomView.addSubview(self.treeView)
@@ -158,6 +157,8 @@ extension DetailRootCategoryViewController: CITreeViewDataSource {
             cell.detailedLabel.text = dataObj.name
             cell.setupCell(level: treeViewNode.level)
         }
+        
+        cell.iconImg.isHidden = true
         
         return cell;
     }

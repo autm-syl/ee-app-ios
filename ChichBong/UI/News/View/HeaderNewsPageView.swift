@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HeaderNewsPageViewDelegate: AnyObject {
-    func didOpenNews(newsId: Int)
+    func didOpenNews(newsId: NewsObj)
 }
 
 class HeaderNewsPageView: UIView {
@@ -21,7 +21,7 @@ class HeaderNewsPageView: UIView {
     
     weak var delegate:HeaderNewsPageViewDelegate?
     
-    var newsId = 0
+    var thisNews:NewsObj?
     
     override init(frame: CGRect) {
         super.init(frame: frame);
@@ -41,14 +41,13 @@ class HeaderNewsPageView: UIView {
     }
 
     @IBAction func didClickedOpenthisNews(_ sender: Any) {
-        delegate?.didOpenNews(newsId: newsId)
+        delegate?.didOpenNews(newsId: thisNews!)
     }
     
-    public func setNews(news: DocumentObj) {
-//        newsId = news.Id
-//        thumbnail.sd_setImage(with: URL.init(string: "\(news.Thumbnail)"), completed: nil)
-//        name.text = news.Name
-//        let date = Date(timeIntervalSince1970: TimeInterval(news.Create_time))
-//        timeCreate.text = "\(date.getElapsedInterval())"
+    public func setNews(news: NewsObj) {
+        thisNews = news
+        thumbnail.sd_setImage(with: URL.init(string: "\(news.thumbnail)"), completed: nil)
+        name.text = news.title
+        timeCreate.text = news.updated_at
     }
 }

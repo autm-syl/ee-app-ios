@@ -42,12 +42,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         
         
         // create nsattributed
+        let TERM_CONDITION = "\(Config.BASE_URL_STATIC)\(Config.PATH_TERM_CONDITION)"
+        
         descriptionTxt.delegate = self
         descriptionTxt.isEditable = false
         descriptionTxt.isSelectable = true
         descriptionTxt.isUserInteractionEnabled = true
-        let attributedString = NSMutableAttributedString(string: "Bằng cách bấm tiếp tục.\nTôi đồng ý với Điều khoản sử dụng của Indust3")
-        attributedString.addAttribute(.link, value: "https://www.google.com", range: NSRange(location: 39, length: 10))
+        let attributedString = NSMutableAttributedString(string: "Bằng cách bấm tiếp tục.\nTôi đồng ý với Điều khoản sử dụng của EVNBOOK")
+        attributedString.addAttribute(.link, value: TERM_CONDITION, range: NSRange(location: 39, length: 10))
         let font = UIFont.systemFont(ofSize: 13)
         let attributes = [NSAttributedString.Key.font: font]
         attributedString.addAttributes(attributes, range: NSRange(location: 39, length: 10))
@@ -81,15 +83,21 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
             }
             SVProgressHUD.show()
             loginViewDataData.login(username: phoneNum, pass: pass!) { [self] user, error in
-                SVProgressHUD.dismiss()
+                
                 if user != nil {
                     // login success
                     Globalvariables.shareInstance.token_auth = user!.Token
                     Globalvariables.shareInstance.setTokenAuth(token: user!.Token)
                     Globalvariables.shareInstance.setUserName(username: phoneNum)
-                    NotificationCenter.default.post(name:.goIntoApp, object: nil);
+                    
+                    self.getMyInformation { success in
+                        //
+                        SVProgressHUD.dismiss()
+                        NotificationCenter.default.post(name:.goIntoApp, object: nil);
+                    }
                 } else {
                     // login false
+                    SVProgressHUD.dismiss()
                     self.ShowBottomToastWith(mess: (error?.mErrorMessage)!, messColor: UIColor.red)
                 }
             }
@@ -125,6 +133,28 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         return;
     }
     
+    // MARK: -
+    private
+    func getMyInformation( completion: @escaping(Bool) -> Void) {
+        MonConnection.requestCustom(APIRouter.me) { result, error in
+            //
+            if error != nil {
+                completion(false)
+                return;
+            }
+            
+            let user = UserResult.init(JSON: result!)
+            
+            if user!.message == "Success" {
+                Globalvariables.shareInstance.thisUserOnDevice = user!.user
+                completion(true)
+                return;
+            } else {
+                completion(false)
+                return;
+            }
+        }
+    }
     
     private func notifyError(field: UITextField, message: String) {
         popTipView = CMPopTipView.init(title: "Chú ý", message: message)
@@ -166,12 +196,13 @@ extension FirstViewController: CMPopTipViewDelegate {
 
 extension FirstViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        // open 
-//        UIApplication.shared.open(URL)
+        // open
         let newsController = NewsViewController(nibName: "NewsViewController", bundle: nil)
-        newsController.staticLink = "https://stackoverflow.com/questions/18746929/using-auto-layout-in-uitableview-for-dynamic-cell-layouts-variable-row-heights"
+        newsController.staticLink = "\(Config.BASE_URL_STATIC)\(Config.PATH_TERM_CONDITION)"
         newsController.headerTitleSet = "Điều khoản & điều kiện"
-        self.present(newsController, animated: true, completion: nil)
+        newsController.isStaticPageLoad = true
+        present(newsController, animated: true, completion: nil)
+
         return false
     }
 }

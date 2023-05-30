@@ -10,7 +10,7 @@ import SVProgressHUD
 import VKPinCodeView
 
 
-class UserViewController: UIViewController {
+class UserViewController: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var area1: UIView!
@@ -39,8 +39,8 @@ class UserViewController: UIViewController {
     var popTipView:CMPopTipView? = nil;
     var pincode:String = ""
     
-    let phonePlacehold = "Số điện thoại là bắt buộc"
-    let addressPlaceHold = "Địa chỉ nhận hàng mặc định"
+    let phonePlacehold = "Số điện thoại xác thực"
+    let addressPlaceHold = "Phòng ban (vị trí)"
 
     @IBAction func backClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -55,6 +55,7 @@ class UserViewController: UIViewController {
         adress1.delegate = self;
         usernameField.delegate = self;
         
+        setupUIInformation()
         // check type
     }
     
@@ -71,6 +72,104 @@ class UserViewController: UIViewController {
     private func validator(_ code: String) -> Bool {
         return !code.trimmingCharacters(in: CharacterSet.decimalDigits.inverted).isEmpty
     }
+    @IBAction func updateUseFullNameBtnClicked(_ sender: Any) {
+        self.view.endEditing(true)
+        let fullname = usernameField.text;
+        if fullname == "" {
+            notifyWarning(field: usernameField, message: "Họ tên đang trống. vui lòng xem lại!")
+            return;
+        }
+        
+        self.updateProfile(mail: "", avatar: "", name: "", fullname: fullname ?? "", department: "", address: "", phone: "", birthday: "")
+    }
+    @IBAction func updateAddressBtnClicked(_ sender: Any) {
+        self.view.endEditing(true)
+        let department = adress1.text;
+        if department == "" {
+            notifyWarning(field: adress1, message: "Phòng ban (vị trí) đang trống. vui lòng xem lại!")
+            return;
+        }
+        
+        self.updateProfile(mail: "", avatar: "", name: "", fullname: "", department: department ?? "", address: "", phone: "", birthday: "")
+    }
+    @IBAction func updatePhoneNumBtnClicked(_ sender: Any) {
+        self.view.endEditing(true)
+        let phone = phoneNum.text;
+        if phone == "" {
+            notifyWarning(field: phoneNum, message: "Số điện thoại đang trống. vui lòng xem lại!")
+            return;
+        }
+        
+        self.updateProfile(mail: "", avatar: "", name: "", fullname: "", department: "", address: "", phone: phone ?? "", birthday: "")
+    }
+    @IBAction func changePassBtnClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: "changePass", sender: nil)
+    }
+    
+    // MARK: - private function
+    
+    private
+    func setupUIInformation() {
+        if Globalvariables.shareInstance.thisUserOnDevice != nil && Globalvariables.shareInstance.thisUserOnDevice?.Phone != "" {
+            self.phoneNum.text = Globalvariables.shareInstance.thisUserOnDevice!.Phone
+        }
+        
+        if Globalvariables.shareInstance.thisUserOnDevice != nil && Globalvariables.shareInstance.thisUserOnDevice?.Department != "" {
+            self.adress1.text = Globalvariables.shareInstance.thisUserOnDevice!.Department
+        }
+        
+        if Globalvariables.shareInstance.thisUserOnDevice != nil && Globalvariables.shareInstance.thisUserOnDevice?.Fullname != "" {
+            self.usernameField.text = Globalvariables.shareInstance.thisUserOnDevice!.Fullname
+        }
+    }
+    
+    private
+    func updateProfile(mail: String, avatar: String, name: String, fullname: String, department: String, address: String, phone: String, birthday: String) {
+        SVProgressHUD.show()
+        MonConnection.requestCustom(APIRouter.updateProfile(user_id: Globalvariables.shareInstance.thisUserOnDevice?.Id ?? 0, mail: mail, avatar: avatar, name: name, fullname: fullname, department: department, address: address, phone: phone, birthday: birthday)) { [self] result, error in
+            SVProgressHUD.dismiss()
+            if error == nil {
+                // xu ly result
+                SVProgressHUD.showSuccess(withStatus: "Cập nhật thành công")
+                SVProgressHUD.dismiss(withDelay: 2.0)
+                self.getMyInformation { success in
+                    //
+                    self.showNotify(mess: "Đồng bộ thông tin người dùng thành công")
+                }
+            } else {
+                // loi
+                // no live header.
+                SVProgressHUD.showError(withStatus: "Có lỗi xảy ra trong quá trình cập nhật\n Vui lòng thử lại sau!")
+                SVProgressHUD.dismiss(withDelay: 4.0)
+                
+                if error?.mErrorCode == 401 {
+                    self.showError(mess: "Lỗi xác thực tài khoản!\nCó ai đó đã đăng nhập trên thiết bị khác.")
+                }
+            }
+        }
+    }
+    
+    private
+    func getMyInformation( completion: @escaping(Bool) -> Void) {
+        MonConnection.requestCustom(APIRouter.me) { result, error in
+            //
+            if error != nil {
+                completion(false)
+                return;
+            }
+            
+            let user = UserResult.init(JSON: result!)
+            
+            if user!.message == "Success" {
+                Globalvariables.shareInstance.thisUserOnDevice = user!.user
+                completion(true)
+                return;
+            } else {
+                completion(false)
+                return;
+            }
+        }
+    }
 }
 
 extension UserViewController: CMPopTipViewDelegate {
@@ -84,6 +183,8 @@ extension UserViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if (textField == usernameField) {
             updateUserNameBtn.isHidden = false
+            updateAddressBtn.isHidden = true
+            updatePhoneNumBtn.isHidden = true
         }
         
         return true
@@ -100,24 +201,7 @@ extension UserViewController: UITextFieldDelegate {
             }
         }
     }
-    
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        let pass = textField.text
-//        if (pass == "") {
-//            notifyErrorPincode(field: textField, message: "Bạn chưa nhập mã PIN")
-//            return true;
-//        }
-//        if pass!.count < 4 {
-//            notifyErrorPincode(field: textField, message: "Mã PIN gồm 4 chữ số!")
-//            textField.text = ""
-//            return true;
-//        }
-//        pincode = pass!
-//        Globalvariables.shareInstance.setPincode(pincode: pincode)
-//        updateUserProfile(Adr1: "", Adr2: "", Birthday: "", Device_id: "", Device_name: "", Fb_id: "", Gender: 0, Name: "", Old: 0, Phone_num: "", User_name: "", Pass: pincode )
-//
-//        return true
-//    }
+
 }
 
 extension UserViewController: UITextViewDelegate {
@@ -129,12 +213,14 @@ extension UserViewController: UITextViewDelegate {
                 textView.text = ""
             }
             updatePhoneNumBtn.isHidden = false
+            phoneNum.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         }
         if textView == adress1 {
             if textView.text == addressPlaceHold {
                 textView.text = ""
             }
             updateAddressBtn.isHidden = false
+            adress1.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         }
     }
     
@@ -143,32 +229,27 @@ extension UserViewController: UITextViewDelegate {
             // placehold
             if (textView.text == "") {
                 textView.text = phonePlacehold
+                phoneNum.textColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
             }
-            
             
             let phone = textView.text
-            if phone == "" {
-                notifyWarning(field: textView, message: "Bạn chưa nhập số điện thoại!")
-                return;
-            }
             
             if !phone!.isValidPhone() {
                 notifyWarning(field: textView, message: "Số điện thoại chưa chính xác. vui lòng xem lại!")
                 return;
             }
-            
-           
-            
         }
+        
         
         if textView == adress1 {
             if (textView.text == "") {
                 textView.text = addressPlaceHold
+                adress1.textColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
             }
             
             let address1 = textView.text
             if address1 == "" {
-                notifyWarning(field: textView, message: "Địa chỉ đang để trống!")
+                notifyWarning(field: textView, message: "Đang để trống!")
                 return;
             }
         }
@@ -210,7 +291,7 @@ extension UserViewController: UITextViewDelegate {
         popTipView!.presentPointing(at: field, in: self.view, animated: true)
     }
     
-    private func notifyWarning(field: UITextView, message: String) {
+    private func notifyWarning(field: UIView, message: String) {
         popTipView = CMPopTipView.init(title: "❗️", message: message)
         
         popTipView!.delegate = self;

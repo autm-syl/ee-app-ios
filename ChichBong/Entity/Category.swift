@@ -43,6 +43,12 @@ class Category: Mappable {
          docid <- map["Docid"];
          created_at <- map["Created_at"];
          updated_at <- map["Updated_at"];
+         
+         created_at = created_at.replacingOccurrences(of: "T", with: " ")
+         created_at = created_at.replacingOccurrences(of: "Z", with: "")
+         
+         updated_at = updated_at.replacingOccurrences(of: "T", with: " ")
+         updated_at = updated_at.replacingOccurrences(of: "Z", with: "")
     }
 }
 
@@ -63,7 +69,7 @@ class CategoryTreeData {
     init(id:Int, name : String, description : String, content : String, docid : Int, created_at : String, updated_at : String, children: [CategoryTreeData]) {
         self.id = id
         self.name = name
-        self.description = name
+        self.description = description
         self.content = content
         self.docid = docid
         self.created_at = created_at

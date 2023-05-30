@@ -7,9 +7,9 @@
 
 import Foundation
 struct Config {
-//    static let BASE_URL : String = "http://3.16.29.132:8088"
-    static let BASE_URL : String = "http://192.168.1.4:8088"
-    static let BASE_DOCUEMNT_VIEW : String = "http://3.16.29.132/document-view"
+    static let BASE_URL : String = "http://45.76.156.52:8088"
+//    static let BASE_URL : String = "http://192.168.1.20:8088"
+    static let BASE_DOCUEMNT_VIEW : String = "http://45.76.156.52/document-view"
     
 
     static let APP_VERSION :String = "1.0.0"
@@ -17,12 +17,11 @@ struct Config {
     static let THIRTPT_BASE_URL : String = "https://chichbong.net";
     
     
-    static let PATH_CONTACT_US : String = "/autm/static/contac_us"
-    static let PATH_ABOUT_US : String = "/autm/static/about_us"
-    static let PATH_TERM_CONDITION : String = "/autm/static/term_conditions"
-    static let PATH_POLICY : String = "/autm/static/policies"
-    
-    static let CHAT_DOMAIN :String = "http://kiss.chichbong.vn"
+    static let BASE_URL_STATIC : String = "http://45.76.156.52"
+    static let PATH_CONTACT_US : String = "/news-view/2"
+    static let PATH_ABOUT_US : String = "/news-view/1"
+    static let PATH_TERM_CONDITION : String = "/news-view/3"
+    static let PATH_POLICY : String = "/news-view/4"
 }
 
 enum NetworkErrorType {

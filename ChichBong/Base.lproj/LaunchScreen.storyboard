@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,15 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chichbong" translatesAutoresizingMaskIntoConstraints="NO" id="FUt-7W-OiA">
-                                <rect key="frame" x="25" y="30" width="364" height="846"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chichbong" translatesAutoresizingMaskIntoConstraints="NO" id="FUt-7W-OiA">
+                                <rect key="frame" x="0.0" y="5" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="FUt-7W-OiA" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" constant="-50" id="Dmg-WJ-o7n"/>
-                            <constraint firstItem="FUt-7W-OiA" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" constant="-50" id="WC8-Fk-zac"/>
+                            <constraint firstItem="FUt-7W-OiA" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="Dmg-WJ-o7n"/>
+                            <constraint firstItem="FUt-7W-OiA" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="WC8-Fk-zac"/>
                             <constraint firstItem="FUt-7W-OiA" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Xyf-25-PUp"/>
                             <constraint firstItem="FUt-7W-OiA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mMj-fS-Y1U"/>
                         </constraints>
@@ -36,6 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chichbong" width="255" height="110"/>
+        <image name="chichbong" width="512" height="512"/>
     </resources>
 </document>

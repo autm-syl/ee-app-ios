@@ -28,8 +28,11 @@ extension Notification.Name {
     static let goMainHome = Notification.Name("goMainHome")
     static let goOrderTab = Notification.Name("goOrderTab")
     static let goAllNewsPage = Notification.Name("goAllNewsPage")
+    static let goAllStandardPage = Notification.Name("goAllStandardPage")
     static let goChatScreen = Notification.Name("goChatScreen")
     static let showToastMessage = Notification.Name("showToastMessage")
+    static let goAllSaveFilePage = Notification.Name("goAllSaveFilePage")
+    
     
     static let goCartController = Notification.Name("goCartController")
 }

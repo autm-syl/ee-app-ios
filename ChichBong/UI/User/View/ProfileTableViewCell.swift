@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ProfileTableViewCellProtocol: AnyObject {
+    func didClickedNoti() -> Void
+}
+
 class ProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var titleCell: UILabel!
     @IBOutlet weak var detailCell: UILabel!
@@ -14,6 +18,8 @@ class ProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var extensionBtn: UIButton!
     @IBOutlet weak var line: UIView!
     @IBOutlet weak var iconsmall: UIImageView!
+    
+    weak var delegate:ProfileTableViewCellProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,10 +37,8 @@ class ProfileTableViewCell: UITableViewCell {
     }
     
     @IBAction func notifySwitched(_ sender: UISwitch) {
-        if let bundleIdentifier = Bundle.main.bundleIdentifier, let appSettings = URL(string: UIApplication.openSettingsURLString + bundleIdentifier) {
-            if UIApplication.shared.canOpenURL(appSettings) {
-                UIApplication.shared.open(appSettings)
-            }
+        if (self.delegate != nil) {
+            self.delegate?.didClickedNoti()
         }
     }
 
@@ -50,7 +54,7 @@ class ProfileTableViewCell: UITableViewCell {
     func setTypeOfCell(type: Int) {
         switch type {
         case 0:
-            detailCell.isHidden = false
+            detailCell.isHidden = true
             notiState.isHidden = true
             extensionBtn.isHidden = false
             break
@@ -73,4 +77,7 @@ class ProfileTableViewCell: UITableViewCell {
         }
     }
     
+    func isNotiEnable(_ isEnable: Bool) {
+        notiState.setOn(isEnable, animated: false)
+    }
 }

@@ -23,7 +23,8 @@ class MainTabarViewController: UITabBarController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.goPolicies), name: .goPolicies, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.goHomeTab), name: .goMainHome, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.goOrderTab), name: .goOrderTab, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.goAllNewsPage), name: .goAllNewsPage, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goAllSaveFilePage), name: .goAllSaveFilePage, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goAllStandardPage), name: .goAllStandardPage, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateBadgeFavorite), name: .updateBadgeFavorite, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateBadgeOrder), name: .updateBadgeOrder, object: nil)
@@ -31,6 +32,8 @@ class MainTabarViewController: UITabBarController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.goCartController), name: .goCartController, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.showToastNotify(_:)), name: .showToastMessage, object: nil)
+        
+        
         
         
         updateBadgeFavorite()
@@ -46,7 +49,11 @@ class MainTabarViewController: UITabBarController {
     }
 
     @objc func goUserTab() {
-        self.selectedIndex = 4
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let newsListVC = storyboard.instantiateViewController(withIdentifier: "ProfileViewController")
+//        let currentnav = self.selectedViewController as! UINavigationController
+        self.selectedViewController?.present(newsListVC, animated: true, completion: nil)
+//        self.selectedIndex = 4
     }
     
     @objc func goHomeTab() {
@@ -61,15 +68,21 @@ class MainTabarViewController: UITabBarController {
         NotificationCenter.default.post(name:.goChatScreen, object: nil);
     }
     
-    @objc func goAllNewsPage() {
+    @objc func goAllSaveFilePage() {
         let newsListVC = NewsListViewController(nibName: "NewsListViewController", bundle: nil)
         let currentnav = self.selectedViewController as! UINavigationController
         currentnav.pushViewController(newsListVC, animated: true)
     }
+    @objc func goAllStandardPage() {
+        let newsListVC = StandardsViewController(nibName: "StandardsViewController", bundle: nil)
+        let currentnav = self.selectedViewController as! UINavigationController
+        currentnav.pushViewController(newsListVC, animated: true)
+    }
+    
     
     @objc func goContactUsPage() {
         let newsController = NewsViewController(nibName: "NewsViewController", bundle: nil)
-        newsController.staticLink = "\(Config.BASE_URL)\(Config.PATH_CONTACT_US)"
+        newsController.staticLink = "\(Config.BASE_URL_STATIC)\(Config.PATH_CONTACT_US)"
         newsController.headerTitleSet = "Liên hệ"
         let currentnav = self.selectedViewController as! UINavigationController
         currentnav.pushViewController(newsController, animated: true)
@@ -82,7 +95,7 @@ class MainTabarViewController: UITabBarController {
     
     @objc func goAboutUsPage() {
         let newsController = NewsViewController(nibName: "NewsViewController", bundle: nil)
-        newsController.staticLink = "\(Config.BASE_URL)\(Config.PATH_ABOUT_US)"
+        newsController.staticLink = "\(Config.BASE_URL_STATIC)\(Config.PATH_ABOUT_US)"
         newsController.headerTitleSet = "Về chúng tôi"
         let currentnav = self.selectedViewController as! UINavigationController
         currentnav.pushViewController(newsController, animated: true)
@@ -90,14 +103,14 @@ class MainTabarViewController: UITabBarController {
     
     @objc func goTermCondition() {
         let newsController = NewsViewController(nibName: "NewsViewController", bundle: nil)
-        newsController.staticLink = "\(Config.BASE_URL)\(Config.PATH_TERM_CONDITION)"
+        newsController.staticLink = "\(Config.BASE_URL_STATIC)\(Config.PATH_TERM_CONDITION)"
         newsController.headerTitleSet = "Điều khoản & điều kiện"
         let currentnav = self.selectedViewController as! UINavigationController
         currentnav.pushViewController(newsController, animated: true)
     }
     @objc func goPolicies() {
         let newsController = NewsViewController(nibName: "NewsViewController", bundle: nil)
-        newsController.staticLink = "\(Config.BASE_URL)\(Config.PATH_POLICY)"
+        newsController.staticLink = "\(Config.BASE_URL_STATIC)\(Config.PATH_POLICY)"
         newsController.headerTitleSet = "Chính sách bảo mật"
         let currentnav = self.selectedViewController as! UINavigationController
         currentnav.pushViewController(newsController, animated: true)

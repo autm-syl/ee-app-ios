@@ -15,15 +15,16 @@ protocol FSQuestViewCellDelegate {
 }
 
 open class FSQuestViewCell: UICollectionViewCell {
-    @IBOutlet weak var nameQuest: UITextView!
-    @IBOutlet weak var areaDescription: UIView!
-    @IBOutlet weak var heighContraistDescription: NSLayoutConstraint!
+    @IBOutlet weak var questContent: UILabel!
+    
+    @IBOutlet weak var option1Lbl: UILabel!
+    @IBOutlet weak var option2Lbl: UILabel!
+    @IBOutlet weak var option3Lbl: UILabel!
+    @IBOutlet weak var option4Lbl: UILabel!
     @IBOutlet weak var AseBtn: UIButton!
     @IBOutlet weak var BseBtn: UIButton!
     @IBOutlet weak var CseBtn: UIButton!
     @IBOutlet weak var DseBtn: UIButton!
-    @IBOutlet weak var contentWebView: WKWebView!
-    @IBOutlet weak var contentHeightContraints: NSLayoutConstraint!
     
     open var indexQuest:Int = 0;
     var delegate: FSQuestViewCellDelegate?
@@ -43,13 +44,15 @@ open class FSQuestViewCell: UICollectionViewCell {
         BseBtn.isSelected = false;
         CseBtn.isSelected = false;
         DseBtn.isSelected = false;
+        
+        [option1Lbl, option2Lbl, option3Lbl, option4Lbl].forEach { (current) in
+            //
+            current.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        }
     }
     
     func setContentWeb(content: String) {
-        contentWebView.scrollView.isScrollEnabled = true
-//        contentWebView.navigationDelegate = self
-        let html = "<!DOCTYPE html><html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title></title></head><body>\(content)</body></html>"
-        contentWebView.loadHTMLString(html, baseURL: Bundle.main.bundleURL)
+        questContent.text = content
     }
 
     @IBAction func ChoosedBtnClicked(_ sender: Any) {
@@ -79,22 +82,50 @@ open class FSQuestViewCell: UICollectionViewCell {
         case 1:
             // Change to English
             if button.isSelected {
-                selected = AseBtn.titleLabel?.text
+                selected = "option1"
+                option1Lbl.textColor = #colorLiteral(red: 0.8488505483, green: 0.5602982044, blue: 0.1878142655, alpha: 1)
+                [option2Lbl, option3Lbl, option4Lbl].forEach { (current) in
+                    //
+                    current.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                }
+            } else {
+                option1Lbl.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             }
             break
         case 2:
             if button.isSelected {
-                selected = BseBtn.titleLabel?.text
+                selected = "option2"
+                option2Lbl.textColor = #colorLiteral(red: 0.8488505483, green: 0.5602982044, blue: 0.1878142655, alpha: 1)
+                [option1Lbl, option3Lbl, option4Lbl].forEach { (current) in
+                    //
+                    current.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                }
+            } else {
+                option2Lbl.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             }
             break
         case 3:
             if button.isSelected {
-                selected = CseBtn.titleLabel?.text
+                selected = "option3"
+                option3Lbl.textColor = #colorLiteral(red: 0.8488505483, green: 0.5602982044, blue: 0.1878142655, alpha: 1)
+                [option2Lbl, option1Lbl, option4Lbl].forEach { (current) in
+                    //
+                    current.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                }
+            } else {
+                option3Lbl.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             }
             break
         case 4:
             if button.isSelected {
-                selected = DseBtn.titleLabel?.text
+                selected = "option4"
+                option4Lbl.textColor = #colorLiteral(red: 0.8488505483, green: 0.5602982044, blue: 0.1878142655, alpha: 1)
+                [option2Lbl, option3Lbl, option1Lbl].forEach { (current) in
+                    //
+                    current.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                }
+            } else {
+                option4Lbl.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             }
             break
         default:
@@ -107,6 +138,5 @@ open class FSQuestViewCell: UICollectionViewCell {
         } else {
             delegate?.selectedBtn(selected: selected!, index: self.indexQuest)
         }
-        
     }
 }
